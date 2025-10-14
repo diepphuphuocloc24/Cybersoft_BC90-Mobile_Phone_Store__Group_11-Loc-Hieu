@@ -1198,13 +1198,26 @@ button.secondary-outline:hover {
 .product-content .product-left {
   flex: 1 1 25%;
   max-width: 25%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 .product-content .product-left img {
-  width: 100%;
+  width: 82%;
   border-radius: 12px;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .product-content .product-left {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .product-content .product-left {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .product-content .product-right {
   flex: 1 1 75%;
@@ -1229,7 +1242,7 @@ button.secondary-outline:hover {
 .product-content .product-right .product-list {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding: 2rem;
   background-color: #e5e7eb;
   border-radius: 12px;
@@ -1248,11 +1261,9 @@ button.secondary-outline:hover {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
-  text-align: center;
   padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 100%;
@@ -1276,10 +1287,25 @@ button.secondary-outline:hover {
   color: black;
   flex-grow: 1;
 }
+.product-content .product-right .product-list .product .description {
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(104.0519480519, 228.9480519481, 150.025974026);
+  padding: 0 0.3rem;
+  border-radius: 4px;
+}
+.product-content .product-right .product-list .product .inventory {
+  background-color: rgb(249.0157480315, 196.9527559055, 108.9842519685);
+}
 .product-content .product-right .product-list .product .price {
   font-weight: 600;
   color: #ff416c;
   margin-bottom: 0.5rem;
+}
+.product-content .product-right .product-list .product button {
+  display: block;
+  text-align: center !important;
 }
 @media (max-width: 992px) {
   .product-content {
