@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+html,
+body {
+  font-family: "Inter", sans-serif;
+  font-size: $text-base;
+  font-weight: 400;
+  font-style: normal;
+  color: $gray-600;
+  line-height: 1.6;
+  background: linear-gradient(
+    100deg,
+    #b2fcef,
+    #c8c4ff,
+    #d8b7ff,
+    #ffbeea,
+    #ffebc1
+  );
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.5s;
+  font-size: $text-base;
+  font-weight: 400;
+  font-style: normal;
+  color: $gray-600;
+  line-height: 1.6;
+
+  &:hover {
+    color: $primary-RosePink;
+  }
+}
+
+li {
+  list-style: none;
+  font-size: $text-base;
+  font-weight: 400;
+  font-style: normal;
+  color: $gray-600;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
+
+  @media (max-width: 1024px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-bold;
+  color: $dark;
+  margin-bottom: 0.5rem;
+}
+
+h1 {
+  font-size: $text-4xl;
+  line-height: $h-4xl;
+}
+
+h2 {
+  font-size: $text-3xl;
+  line-height: $h-3xl;
+}
+
+button {
+  @include button-style($primary-RosePink, $light);
+
+  &.secondary {
+    @include button-style($secondary, $dark, darken($secondary, 5%), $light);
+  }
+
+  // Button Outline Primary
+  &.outline {
+    @include button-outline(
+      $primary-RosePink,
+      $primary-RosePink,
+      $primary-RosePink,
+      $light
+    );
+  }
+
+  // Button Outline Secondary
+  &.secondary-outline {
+    @include button-outline($secondary, $secondary, $secondary, $light);
+  }
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: $text-sm;
+  font-weight: $font-medium;
+  border: none;
+  cursor: pointer;
+  box-shadow: $box-shadow-soft;
+  transition: all 0.3s;
+
+  &:hover {
+    // Hover cho button primary
+    background-color: red;
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-strong;
+  }
+
+  &.secondary:hover {
+    background-color: darken($secondary, 7%);
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-strong;
+  }
+
+  &.secondary-outline:hover {
+    background-color: $secondary;
+    color: $light;
+  }
+}
+
+.card {
+  @include card-style;
+  &.highlight {
+    background: $gradient-primary;
+    color: $dark;
+  }
+}
+
+@keyframes SlightlyRotate {
+  0% {
+    transform: rotate(10deg);
+  }
+
+  50% {
+    transform: rotate(-10deg);
+  }
+
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+@keyframes ScaleBigSmall {
+  0%,
+  100% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+.img-animate {
+  animation: ScaleBigSmall 4s ease-in-out infinite;
+}

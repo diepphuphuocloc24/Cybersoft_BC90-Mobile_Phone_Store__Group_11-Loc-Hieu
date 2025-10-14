@@ -1,0 +1,108 @@
+// HEADER
+.header {
+  padding: 20px 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1000;
+  background-color: transparent;
+  box-shadow: none;
+  transition: all 0.3s;
+
+  &.scrolled {
+    background-color: $primary;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    padding: 12px 0;
+  }
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+
+    .logo {
+      font-family: "BBH Sans Bartle", sans-serif;
+      font-weight: 600;
+      font-size: 2rem;
+      color: $dark;
+    }
+
+    .search_Bar {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      max-width: 500px;
+      background-color: $light;
+      padding: 6px 10px 6px 14px;
+      border-radius: 16px;
+      border: 2px solid transparent;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 15px;
+        padding: 8px 10px;
+        color: $dark;
+
+        &::placeholder {
+          color: lighten($dark, 30%);
+        }
+      }
+    }
+
+    .btn_Right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .cart,
+      .login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 18px;
+        border-radius: 10px;
+        color: #1a202c;
+        font-size: $text-sm;
+        font-weight: $font-medium;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+        i {
+          font-size: 1rem;
+        }
+
+        &:active {
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+      }
+
+      .cart {
+        background-color: #fbbf24;
+
+        &:hover {
+          background-color: darken($primary-Aquamarine, 8%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      .login {
+        color: $light;
+        background-color: $dark;
+
+        &:hover {
+          background-color: darken($dark, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,118 @@
+@import "./1. variable/_variable.scss";
+@import "./2. mixin/_mixin.scss";
+@import "./3. reset/_reset.scss";
+@import "./4. header/_header.scss";
+@import "./5. carousel/_carousel.scss";
+@import "./6. product/_product.scss";
+@import "./7. footer/_footer.scss";
+@import "./8. back_to_top/_backtotop.scss";
+
+// MODAL
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+
+  &.active {
+    display: flex;
+  }
+
+  .modal-content {
+    background-color: $light;
+    padding: 2rem;
+    border-radius: 15px;
+    width: 400px;
+    box-shadow: $box-shadow-strong;
+    text-align: center;
+
+    h2 {
+      margin-bottom: 1.2rem;
+      color: $dark;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid $gray-600;
+
+      .quantity-control {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        button {
+          background: $primary-Aquamarine; // thay $accent bằng palette
+          border: none;
+          border-radius: 6px;
+          padding: 0.3rem 0.7rem;
+          cursor: pointer;
+          font-weight: bold;
+          color: $light;
+
+          &:hover {
+            background-color: darken($primary-Aquamarine, 8%);
+          }
+        }
+      }
+
+      .remove-btn {
+        background: transparent;
+        border: none;
+        color: $error;
+        font-size: 1.1rem;
+        cursor: pointer;
+      }
+    }
+
+    .total {
+      margin: 1rem 0;
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: $dark;
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 1rem;
+
+      .btn-checkout,
+      .btn-clear {
+        padding: 0.6rem 1.2rem;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-weight: $font-medium;
+      }
+
+      .btn-checkout {
+        background-color: $dark;
+        color: $light;
+
+        &:hover {
+          background-color: darken($dark, 10%);
+        }
+      }
+
+      .btn-clear {
+        background-color: lighten($warning, 20%);
+        color: $dark;
+
+        &:hover {
+          background-color: $warning;
+          color: $light;
+        }
+      }
+    }
+  }
+}
