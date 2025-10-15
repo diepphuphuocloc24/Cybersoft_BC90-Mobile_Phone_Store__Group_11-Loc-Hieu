@@ -39,12 +39,14 @@
     <link rel="stylesheet" href="./libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
     <link rel="stylesheet" href="./libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
 
+    <!-- ANIMTE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <!-- MAIN CSS -->
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body>
+<body class="animate__animated animate__fadeIn">
     <!-- HEADER -->
     <header class="header">
         <div class="header-content container">
@@ -53,6 +55,11 @@
             <div class="search_Bar">
                 <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
                 <button class="btn_Search">Tìm kiếm</button>
+            </div>
+
+            <!-- Nút menu (chỉ hiện trên mobile) -->
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
             </div>
 
             <div class="btn_Right">
@@ -305,6 +312,7 @@
                 class="fi fi-rs-phone-call"></i>
         </a>
     </section>
+
     <!-- JAVASCRIPT -->
     <!-- HEADER -->
     <script>
@@ -315,6 +323,15 @@
             } else {
                 header.classList.remove("scrolled");
             }
+        });
+    </script>
+
+    <script>
+        const menuToggle = document.querySelector(".menu-toggle");
+        const header = document.querySelector(".header");
+
+        menuToggle.addEventListener("click", () => {
+            header.classList.toggle("nav-open");
         });
     </script>
 
@@ -368,7 +385,6 @@
             }
         })
     </script>
-
 
     <!-- BACK TO TOP JS -->
     <script src="./libs/back-to-top-master/assets/js/main.js"></script>

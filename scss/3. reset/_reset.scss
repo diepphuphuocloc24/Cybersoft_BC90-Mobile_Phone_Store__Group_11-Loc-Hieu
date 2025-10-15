@@ -49,17 +49,12 @@ li {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
 
   @media (max-width: 1024px) {
     padding-left: 2rem;
     padding-right: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }
 
@@ -173,4 +168,9 @@ button {
 
 .img-animate {
   animation: ScaleBigSmall 4s ease-in-out infinite;
+}
+
+// ANIMATE
+.animate__animated .animate__fadeIn {
+  --animate-duration: 2s;
 }

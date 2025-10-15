@@ -14,6 +14,7 @@
   right: 15px;
   bottom: 80px;
 
+  font-size: $text-lg;
   color: $light;
   transition: all 0.2s;
 
@@ -77,5 +78,31 @@
   &:hover {
     background-color: $light;
     text-decoration: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .BackToTop,
+  .PhoneTop,
+  .PhoneTop-icon {
+    font-size: $text-base;
+  }
+
+  .BackToTop {
+    bottom: 60px;
+  }
+
+  .PhoneTop {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+
+    right: 55px;
+  }
+
+  .PhoneTop-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
   }
 }

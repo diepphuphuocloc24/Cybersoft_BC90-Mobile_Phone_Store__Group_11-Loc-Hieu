@@ -1,107 +1,324 @@
 // HEADER
-.header {
-  padding: 20px 0;
-  width: 100%;
-  position: fixed;
-  z-index: 1000;
-  background-color: transparent;
-  box-shadow: none;
-  transition: all 0.3s;
-
-  &.scrolled {
-    background-color: $primary;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 12px 0;
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none !important;
   }
 
-  .header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
+  .header {
+    padding: 20px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: transparent;
+    box-shadow: none;
+    transition: all 0.5s;
 
-    .logo {
-      font-family: "BBH Sans Bartle", sans-serif;
-      font-weight: 600;
-      font-size: 2rem;
-      color: $dark;
+    &.scrolled {
+      background-color: $primary;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 12px 0;
     }
 
-    .search_Bar {
+    .header-content {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      flex: 1;
-      max-width: 500px;
-      background-color: $light;
-      padding: 6px 10px 6px 14px;
-      border-radius: 16px;
-      border: 2px solid transparent;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
+      gap: 24px;
 
-      input {
-        flex: 1;
-        border: none;
-        outline: none;
-        font-size: 15px;
-        padding: 8px 10px;
+      .logo {
+        font-family: "BBH Sans Bartle", sans-serif;
+        font-weight: 600;
+        font-size: $text-3xl;
         color: $dark;
-
-        &::placeholder {
-          color: lighten($dark, 30%);
-        }
       }
-    }
 
-    .btn_Right {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-
-      .cart,
-      .login {
+      .search_Bar {
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 6px;
-        padding: 8px 18px;
-        border-radius: 10px;
-        color: #1a202c;
-        font-size: $text-sm;
-        font-weight: $font-medium;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        flex: 1;
+        max-width: 500px;
+        background-color: $light;
+        padding: 6px 10px 6px 14px;
+        border-radius: 16px;
+        border: 2px solid transparent;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        transition: all 0.35s ease;
 
-        i {
-          font-size: 1rem;
+        input {
+          flex: 1;
+          border: none;
+          outline: none;
+          font-size: 15px;
+          padding: 8px 10px;
+          color: $dark;
+          background: transparent;
+
+          &::placeholder {
+            color: lighten($dark, 30%);
+            transition: color 0.3s ease;
+          }
+
+          &:focus::placeholder {
+            color: lighten($dark, 50%);
+          }
         }
 
-        &:active {
+        &:focus-within {
+          background-color: lighten($light, 3%);
+          border-color: $primary-RosePink;
+          box-shadow: 0 0 0 3px rgba($primary-RosePink, 0.25),
+            0 4px 10px rgba(0, 0, 0, 0.08);
+          transform: scale(1.02);
+        }
+
+        .btn_Search {
+          background-color: $primary-RosePink;
+          color: $light;
+          border: none;
+          border-radius: 12px;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: darken($primary-RosePink, 8%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba($primary-RosePink, 0.3);
+          }
+
+          &:active {
+            transform: scale(0.97);
+            box-shadow: none;
+          }
+        }
+      }
+
+      .btn_Right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .cart,
+        .login {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 8px 18px;
+          border-radius: 10px;
+          color: #1a202c;
+          font-size: $text-sm;
+          font-weight: $font-medium;
+          border: none;
+          cursor: pointer;
+          transition: all 0.5s;
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+          i {
+            font-size: 1rem;
+          }
+
+          &:active {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          }
+        }
+
+        .cart {
+          background-color: #fbbf24;
+
+          &:hover {
+            background-color: darken(#fbbf24, 8%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          }
+        }
+
+        .login {
+          color: $light;
+          background-color: $dark;
+
+          &:hover {
+            background-color: darken($dark, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: $text-2xl;
+    line-height: 1;
+    color: $dark;
+  }
+
+  .header {
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+    background-color: transparent;
+    transition: all 0.5s;
+
+    &.scrolled {
+      background-color: $primary;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 10px 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      gap: 10px;
+      position: relative;
+
+      .logo {
+        font-family: "BBH Sans Bartle", sans-serif;
+        font-weight: 600;
+        font-size: $text-xl;
+        color: $dark;
+        flex-shrink: 0;
+      }
+
+      .search_Bar {
+        font-size: $text-xs;
+        display: flex;
+        align-items: center;
+        flex: 1;
+        max-width: 400px;
+        background-color: $light;
+        padding: 6px 10px 6px 14px;
+        border-radius: 16px;
+        border: 2px solid transparent;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        transition: all 0.35s ease;
+
+        input {
+          flex: 1;
+          border: none;
+          outline: none;
+          padding: 8px 10px;
+          font-size: $text-xs;
+          color: $dark;
+          background: transparent;
+
+          &::placeholder {
+            color: lighten($dark, 30%);
+            transition: color 0.3s ease;
+          }
+
+          &:focus::placeholder {
+            color: lighten($dark, 50%);
+          }
+        }
+
+        &:focus-within {
+          background-color: lighten($light, 3%);
+          border-color: $primary-RosePink;
+          box-shadow: 0 0 0 3px rgba($primary-RosePink, 0.25),
+            0 4px 10px rgba(0, 0, 0, 0.08);
+          transform: scale(1.02);
+        }
+
+        .btn_Search {
+          background-color: $primary-RosePink;
+          color: $light;
+          border: none;
+          border-radius: 12px;
+          padding: 8px 16px;
+          font-size: $text-xs;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: darken($primary-RosePink, 8%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba($primary-RosePink, 0.3);
+          }
+
+          &:active {
+            transform: scale(0.97);
+            box-shadow: none;
+          }
         }
       }
 
-      .cart {
-        background-color: #fbbf24;
-
-        &:hover {
-          background-color: darken($primary-Aquamarine, 8%);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
+      .menu-toggle {
+        flex-shrink: 0;
+        z-index: 1001;
       }
 
-      .login {
-        color: $light;
-        background-color: $dark;
+      .btn_Right {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.8rem;
+        position: absolute;
+        right: 2rem;
+        top: 100%;
+        margin-top: 0.5rem;
 
-        &:hover {
-          background-color: darken($dark, 10%);
-          transform: translateY(-2px);
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        .cart,
+        .login {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 8px 18px;
+          border-radius: 10px;
+          color: #1a202c;
+          font-size: $text-sm;
+          font-weight: $font-medium;
+          border: none;
+          cursor: pointer;
+          transition: all 0.5s;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+          i {
+            font-size: 1rem;
+          }
+
+          &:active {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+          }
         }
+
+        .cart {
+          background-color: #fbbf24;
+
+          &:hover {
+            background-color: darken(#fbbf24, 8%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          }
+        }
+
+        .login {
+          color: $light;
+          background-color: $dark;
+
+          &:hover {
+            background-color: darken($dark, 10%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          }
+        }
+      }
+    }
+
+    &.nav-open {
+      .btn_Right {
+        display: flex;
       }
     }
   }
