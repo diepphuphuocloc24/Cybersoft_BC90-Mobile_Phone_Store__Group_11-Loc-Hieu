@@ -11,7 +11,7 @@
     flex: 1 1 25%;
     max-width: 25%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 
     img {
       width: 82%;
@@ -20,20 +20,18 @@
       object-fit: cover;
       margin-bottom: 2rem;
     }
-
-    @media (min-width: 768px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    @media (min-width: 1000px) {
-      grid-template-columns: repeat(1, 1fr);
+    @media (max-width: 1024px) {
+      display: none;
     }
   }
 
   .product-right {
-    flex: 1 1 75%;
-    max-width: 75%;
-    display: flex;
-    flex-direction: column;
+    @media (min-width: 1024px) {
+      flex: 1 1 75%;
+      max-width: 75%;
+      display: flex;
+      flex-direction: column;
+    }
 
     .filter-section {
       display: flex;
@@ -60,9 +58,6 @@
       background-color: #e5e7eb;
       border-radius: 12px;
 
-      @media (min-width: 768px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
       @media (min-width: 1024px) {
         grid-template-columns: repeat(4, 1fr);
       }
@@ -95,10 +90,16 @@
         }
 
         h3 {
-          font-size: 1.05rem;
+          font-size: $text-base;
           margin: 0.5rem 0;
           color: $dark;
           flex-grow: 1;
+          @media (min-width: 1024px) {
+            font-size: $text-sm;
+          }
+          @media (min-width: 1280px) {
+            font-size: $text-base;
+          }
         }
 
         .description {
@@ -107,6 +108,7 @@
           background-color: lighten($success, 20%);
           padding: 0 0.3rem;
           border-radius: 4px;
+          font-size: $text-xs;
         }
 
         .inventory {
@@ -117,17 +119,26 @@
           font-weight: 600;
           color: $primary-RosePink;
           margin-bottom: 0.5rem;
+          @media (min-width: 1024px) {
+            font-size: $text-sm;
+          }
+          @media (min-width: 1280px) {
+            font-size: $text-base;
+          }
         }
+      }
 
-        button {
-          display: block;
-          text-align: center !important;
-        }
+      button {
+        display: block;
+        text-align: center !important;
       }
     }
   }
+}
 
-  @media (max-width: 992px) {
+@media (max-width: 992px) {
+  .product {
+    display: flex;
     flex-direction: column;
 
     .product-left,
