@@ -369,7 +369,6 @@
         z-index: 1002;
       }
 
-      // ---- SEARCH BAR ----
       .search_Bar {
         display: none;
         position: absolute;
@@ -494,7 +493,6 @@
       }
     }
 
-    // Khi bật toggle
     &.nav-open {
       .search_Bar,
       .btn_Right {

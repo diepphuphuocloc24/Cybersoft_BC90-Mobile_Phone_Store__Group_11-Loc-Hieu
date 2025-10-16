@@ -1,0 +1,85 @@
+.admin-table {
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 9rem 0;
+  color: $dark;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: $text-base;
+    background-color: white;
+
+    thead {
+      background-color: $primary-Aquamarine;
+      color: $primary-Darkblue;
+
+      th {
+        padding: $p-4 $p-5;
+        font-weight: $font-semibold;
+        border-bottom: 2px solid $secondary;
+      }
+    }
+
+    tbody {
+      tr {
+        border-bottom: 1px solid $secondary;
+        transition: background 0.2s;
+
+        &:hover {
+          background-color: $primary; // hiệu ứng hover nhẹ
+        }
+
+        td {
+          padding: $p-4 $p-5;
+          vertical-align: middle;
+
+          img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+          }
+
+          .btn {
+            padding: $p-2 $p-4;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: $text-sm;
+            font-weight: $font-medium;
+            transition: 0.2s;
+            box-shadow: $box-shadow-soft;
+            color: $light;
+
+            &.edit {
+              background-color: $success;
+              margin-left: $m-2;
+
+              &:hover {
+                background-color: lighten($success, 10%);
+                transform: scale(1.05);
+              }
+            }
+
+            &.delete {
+              background-color: $error;
+              margin-left: $m-2;
+
+              &:hover {
+                background-color: darken($error, 10%);
+                transform: scale(1.05);
+              }
+            }
+          }
+        }
+      }
+
+      .price {
+        font-weight: 600;
+        color: $primary-RosePink;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

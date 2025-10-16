@@ -7,6 +7,7 @@ const dom_Element_ID = (id) => {
   return document.getElementById(id);
 };
 
+// Lấy thông tin sản phẩm
 const get_Array_Product = () => {
   const get_Promise = axios({
     url: "https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products",

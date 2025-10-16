@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/edfcd763b38d18b2a59d102a631a1699.jpg">
+    <title>Admin LOCHIEU Mobile Store</title>
+
+    <!-- FONT AWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- GOOGLE FONT BBH -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Manrope:wght@200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- GOOGLE FONT INTER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- FLATICON ICON CSS -->
+
+
+    <!-- MAIN ADMIN CSS -->
+    <link rel="stylesheet" href="./css/admin.css">
+</head>
+
+<body>
+    <div id="adminContainer" class="admin-content">
+        <!-- HEADER -->
+        <header class="header">
+            <div id="adminHeader" class="header-content container">
+                <a href="#" class="logo">LOCHIEU</a>
+
+                <div class="search_Bar">
+                    <input id="searchInput" type="text" placeholder="Nhập từ khóa tìm kiếm...">
+                    <button id="btnSearch" class="btn_Search">Tìm kiếm</button>
+                </div>
+
+                <div class="menu-toggle">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+
+                <div class="btn_Right">
+                    <button id="btnAddProduct" class="btn-add">
+                        <i class="fa-solid fa-plus"></i> Thêm sản phẩm
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- MODAL THÊM SẢN PHẨM -->
+        <div id="addProductModal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Thêm sản phẩm mới</h2>
+
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="productId">ID:</label>
+                        <input type="text" id="productId" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productName">Tên sản phẩm:</label>
+                        <input type="text" id="productName" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productPrice">Giá:</label>
+                        <input type="number" id="productPrice" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productType">Loại:</label>
+                        <select id="productType">
+                            <option value="phone">Điện thoại</option>
+                            <option value="tablet">Máy tính bảng</option>
+                            <option value="accessory">Phụ kiện</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productScreen">Màn hình:</label>
+                        <input type="text" id="productScreen" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productBackCamera">Camera sau:</label>
+                        <input type="text" id="productBackCamera">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productFrontCamera">Camera trước:</label>
+                        <input type="text" id="productFrontCamera">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productImg">Hình sản phẩm (URL):</label>
+                        <input type="url" id="productImg">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productStock">Tình trạng hàng:</label>
+                        <select id="productStock" class="stock-select">
+                            <option value="stock">Hàng tồn kho</option>
+                            <option value="new">Hàng mới về</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="productDesc">Mô tả:</label>
+                        <textarea id="productDesc" rows="3"></textarea>
+                    </div>
+
+                    <div class="form-button">
+                        <button type="submit" class="btn-submit">Thêm sản phẩm</button>
+                        <button type="submit" class="btn-update">Cập nhật</button>
+                        <button type="submit" class="btn-close">Đóng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- BẢNG DANH SÁCH SẢN PHẨM -->
+        <section class="container">
+            <div id="productTableSection" class="admin-table">
+                <table id="productTable">
+                    <thead id="tableHead">
+                        <tr>
+                            <th>ID</th>
+                            <th>Tên sản phẩm</th>
+                            <th>Hình sản phẩm</th>
+                            <th>Giá sản phẩm</th>
+                            <th>Chức năng</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="productTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <!-- HEADER -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector(".header");
+            if (window.scrollY > 0) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        const menuToggle = document.querySelector(".menu-toggle");
+        const headerContent = document.querySelector(".header-content");
+
+        menuToggle.addEventListener("click", () => {
+            headerContent.classList.toggle("nav-open");
+        });
+    </script>
+
+    <!-- MODAL -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const btnAddProduct = document.getElementById("btnAddProduct");
+            const addProductModal = document.getElementById("addProductModal");
+            const closeBtn = document.querySelector(".close-btn");
+            const addProductForm = document.getElementById("addProductForm");
+            const stockSelect = document.getElementById("productStock");
+
+            btnAddProduct?.addEventListener("click", () => {
+                addProductModal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+
+            const closeModal = () => {
+                addProductModal.classList.remove("active");
+                document.body.style.overflow = "";
+            };
+
+            closeBtn?.addEventListener("click", closeModal);
+
+            addProductModal?.addEventListener("click", (e) => {
+                if (e.target === addProductModal) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+        integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <!-- MAIN ADMIN JS -->
+    <script type="module" src="./js/admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,280 @@
+@media (min-width: 1024px) {
+  .menu-toggle {
+    display: none !important;
+  }
+
+  .header {
+    padding: 20px 0;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-color: transparent;
+    box-shadow: none;
+    transition: all 0.5s;
+
+    &.scrolled {
+      background-color: $primary;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 12px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+
+      .logo {
+        font-family: "BBH Sans Bartle", sans-serif;
+        font-weight: 600;
+        font-size: $text-3xl;
+        color: $dark;
+      }
+
+      .search_Bar {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        background-color: $light;
+        padding: 6px 10px 6px 14px;
+        border-radius: 16px;
+        border: 2px solid transparent;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        transition: all 0.5s;
+
+        input {
+          flex: 1;
+          border: none;
+          outline: none;
+          font-size: 15px;
+          padding: 8px 10px;
+          color: $dark;
+          background: transparent;
+
+          &::placeholder {
+            color: lighten($dark, 30%);
+          }
+
+          &:focus::placeholder {
+            color: lighten($dark, 50%);
+          }
+        }
+
+        &:focus-within {
+          background-color: lighten($light, 3%);
+          border-color: $primary-RosePink;
+          box-shadow: 0 0 0 3px rgba($primary-RosePink, 0.25),
+            0 4px 10px rgba(0, 0, 0, 0.08);
+          transform: scale(1.02);
+        }
+
+        .btn_Search {
+          background-color: $primary-RosePink;
+          color: $light;
+          border: none;
+          border-radius: 12px;
+          padding: 8px 16px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s;
+
+          &:hover {
+            background-color: darken($primary-RosePink, 8%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba($primary-RosePink, 0.3);
+          }
+
+          &:active {
+            transform: scale(0.97);
+            box-shadow: none;
+          }
+        }
+      }
+
+      .btn_Right {
+        .btn-add {
+          background-color: $primary-Aquamarine;
+          color: $primary-Darkblue;
+          border: none;
+          padding: $p-2 $p-4;
+          border-radius: 8px;
+          font-weight: $font-semibold;
+          box-shadow: $box-shadow-soft;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: lighten($primary-Aquamarine, 10%);
+            transform: scale(1.05);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+    font-size: $text-2xl;
+    color: $dark;
+    z-index: 1002;
+  }
+
+  .header {
+    padding: 20px 0;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-color: transparent;
+    transition: all 0.5s;
+
+    &.scrolled {
+      background-color: $primary;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 10px 0;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      position: relative;
+
+      .logo {
+        font-family: "BBH Sans Bartle", sans-serif;
+        font-weight: 600;
+        font-size: $text-3xl;
+        color: $dark;
+      }
+
+      .search_Bar {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        margin-top: 0.6rem;
+        flex-direction: row;
+        align-items: center;
+        background-color: $light;
+        padding: 6px 10px 6px 14px;
+        border-radius: 16px;
+        border: 2px solid transparent;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+        transition: all 0.5s ease;
+
+        input {
+          flex: 1;
+          border: none;
+          outline: none;
+          padding: 8px 10px;
+          font-size: $text-xs;
+          color: $dark;
+          background: transparent;
+        }
+
+        &:focus-within {
+          background-color: lighten($light, 3%);
+          border-color: $primary-RosePink;
+          box-shadow: 0 0 0 3px rgba($primary-RosePink, 0.25),
+            0 4px 10px rgba(0, 0, 0, 0.08);
+          transform: scale(1.02);
+        }
+
+        .btn_Search {
+          background-color: $primary-RosePink;
+          color: $light;
+          border: none;
+          border-radius: 12px;
+          padding: 8px 16px;
+          font-size: $text-xs;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: darken($primary-RosePink, 8%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba($primary-RosePink, 0.3);
+          }
+
+          &:active {
+            transform: scale(0.97);
+            box-shadow: none;
+          }
+        }
+      }
+
+      /* Nút nằm dưới search bar */
+      .btn_Right {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.8rem;
+        position: absolute;
+        right: 2rem;
+        top: calc(100% + 60px);
+        margin-top: 0.5rem;
+      }
+
+      /* Khi mở toggle */
+      &.nav-open {
+        .search_Bar,
+        .btn_Right {
+          display: flex;
+          animation: fadeSlideDown 0.5s ease forwards;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 15px 0;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background-color: transparent;
+    transition: all 0.5s;
+
+    &.scrolled {
+      background-color: $primary;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      padding: 10px 0;
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      position: relative;
+
+      .logo {
+        font-size: $text-xl;
+      }
+
+      .search_Bar {
+        right: 1rem;
+      }
+
+      .btn_Right {
+        right: 1rem;
+        top: calc(100% + 55px);
+        margin-top: 1rem;
+      }
+
+      &.nav-open {
+        .search_Bar,
+        .btn_Right {
+          display: flex;
+          animation: fadeSlideDown 0.5s ease forwards;
+        }
+      }
+    }
+  }
+}
