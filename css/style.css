@@ -1564,14 +1564,7 @@ button.secondary-outline:hover {
   max-width: 1280px;
   margin: 0 auto;
 }
-.product-content .product-left {
-  flex: 1 1 25%;
-  max-width: 25%;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-}
 .product-content .product-left img {
-  width: 82%;
   border-radius: 12px;
   display: block;
   -o-object-fit: cover;
@@ -1585,8 +1578,6 @@ button.secondary-outline:hover {
 }
 @media (min-width: 1024px) {
   .product-content .product-right {
-    flex: 1 1 75%;
-    max-width: 75%;
     display: flex;
     flex-direction: column;
   }
@@ -1658,7 +1649,7 @@ button.secondary-outline:hover {
     font-size: 1rem;
   }
 }
-.product-content .product-right .product-list .product .description {
+.product-content .product-right .product-list .product .stock {
   display: inline-block;
   width: -moz-fit-content;
   width: fit-content;
@@ -1684,6 +1675,27 @@ button.secondary-outline:hover {
   .product-content .product-right .product-list .product .price {
     font-size: 1rem;
   }
+}
+.product-content .product-right .product-list .product .description {
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: rgb(237.9310344828, 239.6551724138, 242.0689655172);
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+.product-content .product-right .product-list .product .description2 {
+  display: inline-block;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #c8c4ff;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: darkblue;
+  margin-bottom: 0.5rem;
 }
 .product-content .product-right .product-list button {
   display: block;

@@ -1,9 +1,10 @@
 class Manager {
   constructor() {
-    this.array_Stock = [];
+    this.array_Cart = [];
   }
-  btn_add(id) {
-    this.array_Stock.push(id);
+
+  btn_Add_Cart(object_Product) {
+    this.array_Cart.push(object_Product);
   }
   btn_minus() {}
   btn_delete() {}

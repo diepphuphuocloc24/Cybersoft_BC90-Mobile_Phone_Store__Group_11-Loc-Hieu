@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body class="animate__animated animate__fadeIn">
+<body class="animate__animated animate__fadeIn wow">
     <!-- HEADER -->
     <header class="header">
         <div class="header-content container">
@@ -94,7 +94,6 @@
     <section class="product-content">
         <div class="product-left">
             <img src="./img/side img/side-1.webp" alt="">
-            <img src="./img/side img/side-2.webp" alt="">
         </div>
 
         <div class="product-right">
@@ -108,20 +107,22 @@
                 </select>
             </div>
 
-            <div class="product-list">
+            <div class="product-list" id="product-list">
                 <!-- Điện thoại -->
                 <div class="product">
                     <img src="./img/product/dien-thoai-samsung-galaxy-s25-ultra_3__3.webp" alt="Samsung">
                     <h3>Samsung Galaxy S25 Ultra</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">27,980,000₫</p>
+                    <p class="description">Với màn hình 6.8 inch.<br>Cụm camera sau kép 12 MP và camera
+                        trước 7 MP</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
 
                 <div class="product">
                     <img src="./img/product/photo_2024-10-02_13-59-00_1.webp" alt="iPhone">
                     <h3>iPhone 16 Pro Max</h3>
-                    <p class="description inventory">Hàng tồn kho</p>
+                    <p class="stock inventory">Hàng tồn kho</p>
                     <p class="price">28,490,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -129,7 +130,7 @@
                 <div class="product">
                     <img src="./img/product/ss-s24-ultra-xam-222.webp" alt="Samsung">
                     <h3>Samsung Galaxy S24</h3>
-                    <p class="description inventory">Hàng tồn kho</p>
+                    <p class="stock inventory">Hàng tồn kho</p>
                     <p class="price">22,290,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -137,7 +138,7 @@
                 <div class="product">
                     <img src="./img/product/iphone-17-pro-256-gb.png" alt="iPhone">
                     <h3>iPhone 17 Promax</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">37,990,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -146,7 +147,7 @@
                 <div class="product">
                     <img src="./img/product/group_565_2__1.webp" alt="Galaxy Watch">
                     <h3>Samsung Galaxy Watch7 LTE 40mm</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">6,330,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -154,7 +155,7 @@
                 <div class="product">
                     <img src="./img/product/images.jfif" alt="Apple Watch">
                     <h3>Apple Watch Series 10 LTE</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">16,990,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -162,7 +163,7 @@
                 <div class="product">
                     <img src="./img/product/group_565_4__1.webp" alt="Galaxy Watch Ultra">
                     <h3>Samsung Galaxy Watch Ultra LTE</h3>
-                    <p class="description inventory">Hàng tồn kho</p>
+                    <p class="stock inventory">Hàng tồn kho</p>
                     <p class="price">12,490,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -170,7 +171,7 @@
                 <div class="product">
                     <img src="./img/product/apple_lte_12__1_1.webp" alt="Apple Watch Ultra 2">
                     <h3>Apple Watch Ultra 2 LTE 49mm</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">21,990,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -179,7 +180,7 @@
                 <div class="product">
                     <img src="./img/product/tai-nghe-samsung-galaxy-buds-3-pro-spa_1.webp" alt="Galaxy Buds3 Pro">
                     <h3>Samsung Galaxy Buds3 Pro</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">3,890,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -187,7 +188,7 @@
                 <div class="product">
                     <img src="./img/product/samsung-galaxy-buds-3-spa_2.webp" alt="Galaxy Buds3">
                     <h3>Samsung Galaxy Buds3</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">3,415,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -195,7 +196,7 @@
                 <div class="product">
                     <img src="./img/product/airpods_pro_2_sep24_pdp_image_position_2__vn-vi.webp" alt="AirPods Pro 2">
                     <h3>Apple AirPods Pro 2 (Type-C)</h3>
-                    <p class="description inventory">Hàng tồn kho</p>
+                    <p class="stock inventory">Hàng tồn kho</p>
                     <p class="price">5,590,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -203,7 +204,7 @@
                 <div class="product">
                     <img src="./img/product/apple_airpods_3_3_1.png" alt="AirPods 3">
                     <h3>Apple AirPods 3</h3>
-                    <p class="description">Hàng mới về</p>
+                    <p class="stock">Hàng mới về</p>
                     <p class="price">2,890,000₫</p>
                     <button class="btn-add">Thêm vào giỏ</button>
                 </div>
@@ -219,8 +220,8 @@
     <!-- MODAL GIỎ HÀNG -->
     <div class="modal">
         <div class="modal-content">
-            <button class="close-btn">✖</button>
-            <h2>🛒 Giỏ Hàng Của Bạn</h2>
+            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <h2><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng Của Bạn</h2>
 
             <div class="cart-list" id="cart-list">
                 <div class="cart-item">
@@ -419,6 +420,11 @@
     <script>
         new WOW().init();
     </script>
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+        integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- MAIN JS -->
     <script type="module" src="./js/main.js"></script>
