@@ -31,7 +31,7 @@ const render_UI = (array_Product) => {
         <td>${object_Product.name}</td>
         <td><img src="${object_Product.img}" alt="${object_Product.name}"/>
         </td>
-        <td class="price">${object_Product.price} nghìn ₫</td>
+        <td class="price">${object_Product.price} ₫</td>
         <td>
         <button class="btn edit" onclick="btn_Edit()">Sửa</button>
         <button class="btn delete" onclick="btn_Delete()">Xóa</button>

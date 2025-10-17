@@ -31,23 +31,27 @@ const render_UI = (array_Product) => {
   for (let i = 0; i < array_Product.length; i += 1) {
     const object_Product = array_Product[i];
     contentHTML += `
-        <div class="product">
-            <img src="${object_Product.img}" alt="${object_Product.type}">
-            <h3>${object_Product.name}</h3>
-            <p class="stock">Hàng mới về</p>
-            <p class="price">${object_Product.price} nghìn ₫</p>
-            <p class="description">Với màn hình ${object_Product.screen}.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${object_Product.frontCamera}</p>
-            <p class="description2">${object_Product.desc}</p>
-            <button class="btn-add" onclick="btn_Add_Cart('${object_Product}')">Thêm vào giỏ</button>
-        </div>
+      <div class="product">
+          <span class="badge-left">Giảm sốc</span>
+          <span class="badge-right">Trả góp 0%</span>
+          <img src="${object_Product.img}" alt="${object_Product.type}">
+          <h3>${object_Product.name}</h3>
+          <p class="stock">Hàng mới về</p>
+          <p class="price">${object_Product.price} ₫</p>
+          <p class="description">Với màn hình ${object_Product.screen}.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${object_Product.frontCamera}</p>
+          <p class="description2">${object_Product.desc}</p>
+          <button class="btn-add" onclick="btn_Add_Cart('${object_Product.id}')">Thêm vào giỏ</button>
+      </div>
     `;
   }
   dom_Element_ID("product-list").innerHTML = contentHTML;
 };
 
 // Khi bấm vào nút thêm vào giỏ hàng
-function btn_Add_Cart(object_Product) {
-  console.log(object_Product);
+function btn_Add_Cart(id) {
+  console.log(id);
+  manager.btn_Add_Cart(id);
+  console.log(manager.array_Cart);
 }
 
 window.btn_Add_Cart = btn_Add_Cart;

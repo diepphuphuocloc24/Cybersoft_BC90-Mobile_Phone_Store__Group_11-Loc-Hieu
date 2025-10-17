@@ -3,8 +3,8 @@ class Manager {
     this.array_Cart = [];
   }
 
-  btn_Add_Cart(object_Product) {
-    this.array_Cart.push(object_Product);
+  btn_Add_Cart(id) {
+    this.array_Cart.push(id);
   }
   btn_minus() {}
   btn_delete() {}
