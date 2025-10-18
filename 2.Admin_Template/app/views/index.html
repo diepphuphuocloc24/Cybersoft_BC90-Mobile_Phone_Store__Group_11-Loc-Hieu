@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./../img/edfcd763b38d18b2a59d102a631a1699.jpg">
+    <link rel="icon" type="image/png" href="./../../../assets/img/edfcd763b38d18b2a59d102a631a1699.jpg">
     <title>Admin LOCHIEU Mobile Store</title>
 
     <!-- FONT AWESOME CDN -->
@@ -35,7 +35,7 @@
 
 
     <!-- MAIN ADMIN CSS -->
-    <link rel="stylesheet" href="./../css/admin.css">
+    <link rel="stylesheet" href="./../../../assets/css/admin.css">
 </head>
 
 <body>
@@ -65,7 +65,7 @@
         <!-- MODAL THÊM SẢN PHẨM -->
         <div id="addProductModal" class="modal">
             <div class="modal-content">
-                <span class="close-btn">&times;</span>
+                <span class="close-btn"><i class="fa-solid fa-xmark"></i></span>
                 <h2>Thêm sản phẩm mới</h2>
 
                 <form id="addProductForm">
@@ -187,8 +187,8 @@
             const btnAddProduct = document.getElementById("btnAddProduct");
             const addProductModal = document.getElementById("addProductModal");
             const closeBtn = document.querySelector(".close-btn");
+            const btnClose = document.querySelector(".btn-close");
             const addProductForm = document.getElementById("addProductForm");
-            const stockSelect = document.getElementById("productStock");
 
             btnAddProduct?.addEventListener("click", () => {
                 addProductModal.classList.add("active");
@@ -201,6 +201,10 @@
             };
 
             closeBtn?.addEventListener("click", closeModal);
+            btnClose?.addEventListener("click", (e) => {
+                e.preventDefault();
+                closeModal();
+            });
 
             addProductModal?.addEventListener("click", (e) => {
                 if (e.target === addProductModal) {
@@ -211,8 +215,8 @@
     </script>
 
     <!-- BACK TO TOP JS -->
-    <script src="./../libs/back-to-top-master/assets/js/main.js"></script>
-    <script src="./../libs/back-to-top-master/assets/js/util.js"></script>
+    <script src="./../../../assets/libs/back-to-top-master/assets/js/main.js"></script>
+    <script src="./../../../assets/libs/back-to-top-master/assets/js/util.js"></script>
 
     <!-- AXIOS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
@@ -221,7 +225,7 @@
         </script>
 
     <!-- MAIN ADMIN JS -->
-    <script type="module" src="./../js/admin.js"></script>
+    <script type="module" src="./../controllers/index.js"></script>
 </body>
 
 </html>

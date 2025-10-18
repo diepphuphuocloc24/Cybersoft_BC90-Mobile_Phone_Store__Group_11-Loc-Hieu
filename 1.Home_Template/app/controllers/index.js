@@ -1,6 +1,9 @@
-import Manager from "./manager.js";
+import Manager from "./../models/manager.js";
+import Api_Service from "./../services/apiService.js";
 
 const manager = new Manager();
+
+const api = new Api_Service();
 
 // Dom tới Element ID
 const dom_Element_ID = (id) => {
@@ -9,10 +12,7 @@ const dom_Element_ID = (id) => {
 
 // Lấy thông tin sản phẩm
 const get_Array_Product = () => {
-  const get_Promise = axios({
-    url: "https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products",
-    method: "GET",
-  });
+  const get_Promise = api.get_Api_Promise();
 
   get_Promise
     .then((result) => {
@@ -50,8 +50,6 @@ const render_UI = (array_Product) => {
 // Khi bấm vào nút thêm vào giỏ hàng
 function btn_Add_Cart(id) {
   console.log(id);
-  manager.btn_Add_Cart(id);
-  console.log(manager.array_Cart);
 }
 
 window.btn_Add_Cart = btn_Add_Cart;
