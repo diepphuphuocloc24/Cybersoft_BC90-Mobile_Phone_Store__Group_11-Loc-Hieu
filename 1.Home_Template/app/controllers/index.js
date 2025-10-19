@@ -36,11 +36,21 @@ const render_UI = (array_Product) => {
           <span class="badge-right">Trả góp 0%</span>
           <img src="${object_Product.img}" alt="${object_Product.type}">
           <h3>${object_Product.name}</h3>
-          <p class="stock">Hàng mới về</p>
+          <p class="stock ${
+            object_Product.stock === "stock" ? "inventory" : ""
+          }">
+          ${object_Product.stock === "new" ? "Hàng mới về" : "Hàng tồn kho"}
+          </p>
           <p class="price">${object_Product.price} ₫</p>
-          <p class="description">Với màn hình ${object_Product.screen}.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${object_Product.frontCamera}</p>
+          <p class="description">Với màn hình ${
+            object_Product.screen
+          }.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${
+      object_Product.frontCamera
+    }</p>
           <p class="description2">${object_Product.desc}</p>
-          <button class="btn-add" onclick="btn_Add_Cart('${object_Product.id}')">Thêm vào giỏ</button>
+          <button class="btn-add" onclick="btn_Add_Cart('${
+            object_Product.id
+          }')">Thêm vào giỏ</button>
       </div>
     `;
   }

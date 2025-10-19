@@ -33,6 +33,12 @@
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
 
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- FLOWBITE CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet">
+
     <!-- OWL CAROUSEL -->
     <link rel="stylesheet"
         href="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
@@ -62,7 +68,8 @@
             </div>
 
             <div class="btn_Right">
-                <button class="cart">Giỏ hàng <i class="fa-solid fa-cart-shopping"></i></button>
+                <button class="cart" data-modal-target="cart-modal" data-modal-toggle="cart-modal">Giỏ hàng <i
+                        class="fa-solid fa-cart-shopping"></i></button>
                 <button class="login">Đăng nhập <i class="fi fi-rr-user"></i></button>
             </div>
         </div>
@@ -123,18 +130,20 @@
     </section>
 
     <!-- MODAL GIỎ HÀNG -->
-    <div class="modal">
+    <div id="cart-modal" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden justify-center items-center w-full h-full bg-black/40">
         <div class="modal-content">
-            <button class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <button class="close-btn" data-modal-hide="cart-modal"><i class="fa-solid fa-xmark"></i></button>
             <h2><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng Của Bạn</h2>
 
             <div class="cart-list" id="cart-list">
                 <div class="cart-item">
                     <span class="item-name" id="item-name">iPhone 17 Promax</span>
+                    <span class="item-price">34,000,000₫</span>
                     <div class="quantity-control">
-                        <button>-</button>
-                        <span>1</span>
-                        <button>+</button>
+                        <button class="qty-btn minus">−</button>
+                        <span class="qty-number">1</span>
+                        <button class="qty-btn plus">+</button>
                     </div>
                     <button class="remove-btn">Xóa</button>
                 </div>
@@ -155,12 +164,13 @@
     <!-- FOOTER -->
     <footer class="footer">
         <div class="footer-content container">
-            <!-- Cột 1: Giới thiệu -->
+
             <div class="footer-section about">
                 <h3>LOCHIEU Mobile Store</h3>
                 <p>Chuyên cung cấp điện thoại chính hãng, giá tốt nhất thị trường.
                     Cam kết uy tín - chất lượng - tận tâm phục vụ.</p>
-                <p><b>Hotline:</b> <a href="tel:+84987654321" style="color: red; text-decoration: none;">(+84) 987 654
+                <p><b>Hotline:</b> <a href="tel:+84987654321" style="color: red; text-decoration: none;">(+84) 987
+                        654
                         321</a></p>
                 <p>(08:00 - 21:00)</p>
                 <p><b>Email:</b> <a href="mailto:diepphuphuocloc24@gmail.com"
@@ -168,7 +178,6 @@
                 <p><b>Địa chỉ:</b> 5 Trần Khắc Chân, Q.1</p>
             </div>
 
-            <!-- Cột 2: Liên kết nhanh -->
             <div class="footer-section links">
                 <h4>Liên kết nhanh</h4>
                 <ul>
@@ -180,7 +189,6 @@
                 </ul>
             </div>
 
-            <!-- Cột 3: Chính sách -->
             <div class="footer-section policy">
                 <h4>Chính sách & Hỗ trợ</h4>
                 <ul>
@@ -191,7 +199,6 @@
                 </ul>
             </div>
 
-            <!-- Cột 4: Mạng xã hội -->
             <div class="footer-section social">
                 <h4>Kết nối với chúng tôi</h4>
                 <div class="social-icons">
@@ -244,54 +251,14 @@
         });
     </script>
 
-    <!-- MODAL -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cartBtn = document.querySelector('.cart');
-            const modal = document.querySelector('.modal');
-
-            if (!cartBtn || !modal) return;
-
-            // Mở modal
-            cartBtn.addEventListener('click', () => {
-                modal.classList.add('active');
-            });
-
-            // Đóng modal khi click ra ngoài
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
-            });
-        });
-
-        // Lấy các phần tử
-        const modal = document.querySelector(".modal");
-        const cartBtn = document.querySelector(".btn_Right .cart");
-        const closeBtn = document.querySelector(".modal .close-btn");
-
-        modal.classList.remove("active");
-
-        cartBtn.addEventListener("click", () => {
-            modal.classList.add("active");
-        });
-
-        closeBtn.addEventListener("click", () => {
-            modal.classList.remove("active");
-        });
-
-        modal.addEventListener("click", (e) => {
-            if (e.target.classList.contains("modal")) {
-                modal.classList.remove("active");
-            }
-        });
-    </script>
-
     <!-- JQUERY JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
+
+    <!-- FLOWBITE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <!-- OWL CAROUSEL -->
     <script src="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>

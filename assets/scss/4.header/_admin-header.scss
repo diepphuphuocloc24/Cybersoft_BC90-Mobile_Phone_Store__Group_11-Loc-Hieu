@@ -6,7 +6,7 @@
   .header {
     padding: 20px 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     width: 100%;
     background-color: transparent;
     box-shadow: none;
@@ -120,13 +120,13 @@
     cursor: pointer;
     font-size: $text-2xl;
     color: $dark;
-    z-index: 1002;
+    z-index: 1;
   }
 
   .header {
     padding: 20px 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     width: 100%;
     background-color: transparent;
     transition: all 0.5s;
@@ -208,7 +208,6 @@
         }
       }
 
-      /* Nút nằm dưới search bar */
       .btn_Right {
         display: none;
         flex-direction: column;
@@ -218,9 +217,26 @@
         right: 2rem;
         top: calc(100% + 60px);
         margin-top: 0.5rem;
+
+        .btn-add {
+          background-color: $primary-Aquamarine;
+          color: $primary-Darkblue;
+          border: none;
+          padding: $p-2 $p-4;
+          border-radius: 8px;
+          font-weight: $font-semibold;
+          font-size: $text-xs;
+          box-shadow: $box-shadow-soft;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: lighten($primary-Aquamarine, 10%);
+            transform: scale(1.05);
+          }
+        }
       }
 
-      /* Khi mở toggle */
       &.nav-open {
         .search_Bar,
         .btn_Right {
@@ -236,7 +252,7 @@
   .header {
     padding: 15px 0;
     position: fixed;
-    z-index: 1000;
+    z-index: 1;
     width: 100%;
     background-color: transparent;
     transition: all 0.5s;
@@ -266,6 +282,22 @@
         right: 1rem;
         top: calc(100% + 55px);
         margin-top: 1rem;
+        .btn-add {
+          background-color: $primary-Aquamarine;
+          color: $primary-Darkblue;
+          border: none;
+          padding: $p-2 $p-4;
+          border-radius: 8px;
+          font-weight: $font-semibold;
+          box-shadow: $box-shadow-soft;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: lighten($primary-Aquamarine, 10%);
+            transform: scale(1.05);
+          }
+        }
       }
 
       &.nav-open {
