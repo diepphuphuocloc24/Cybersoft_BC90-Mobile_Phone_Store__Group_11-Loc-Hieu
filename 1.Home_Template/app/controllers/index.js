@@ -66,8 +66,8 @@ function btn_Add_Cart(id) {
 
   get_Product_Promise
     .then((result) => {
-      console.log(result.data);
       const object_Product = result.data;
+      console.log(object_Product);
 
       render_Cart(object_Product);
     })
@@ -78,9 +78,11 @@ function btn_Add_Cart(id) {
 
 window.btn_Add_Cart = btn_Add_Cart;
 
+array_Cart = [];
+
 // Render Cart List
 const render_Cart = (object_Product) => {
   // const contentCart = "";
-  const array_Cart = manager.btn_Add_Cart(object_Product);
+  array_Cart.push(object_Product);
   console.log(array_Cart);
 };
