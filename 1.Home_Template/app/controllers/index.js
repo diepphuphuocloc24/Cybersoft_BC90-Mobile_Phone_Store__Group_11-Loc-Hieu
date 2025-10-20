@@ -1,9 +1,12 @@
 import Manager from "./../models/manager.js";
 import Api_Service from "./../services/apiService.js";
+import Validation from "./../models/validation.js";
 
 const manager = new Manager();
 
 const api = new Api_Service();
+
+const validation = new Validation();
 
 // Dom tới Element ID
 const dom_Element_ID = (id) => {
@@ -48,9 +51,9 @@ const render_UI = (array_Product) => {
       object_Product.frontCamera
     }</p>
           <p class="description2">${object_Product.desc}</p>
-          <button class="btn-add" onclick="btn_Add_Cart('${
+          <button class="btn-add" onclick="btn_Add_Cart(${
             object_Product.id
-          }')">Thêm vào giỏ</button>
+          })">Thêm vào giỏ</button>
       </div>
     `;
   }
@@ -59,9 +62,25 @@ const render_UI = (array_Product) => {
 
 // Khi bấm vào nút thêm vào giỏ hàng
 function btn_Add_Cart(id) {
-  console.log(id);
+  const get_Product_Promise = api.get_Product_By_ID(id);
+
+  get_Product_Promise
+    .then((result) => {
+      console.log(result.data);
+      const object_Product = result.data;
+
+      render_Cart(object_Product);
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
 }
 
 window.btn_Add_Cart = btn_Add_Cart;
 
 // Render Cart List
+const render_Cart = (object_Product) => {
+  // const contentCart = "";
+  const array_Cart = manager.btn_Add_Cart(object_Product);
+  console.log(array_Cart);
+};

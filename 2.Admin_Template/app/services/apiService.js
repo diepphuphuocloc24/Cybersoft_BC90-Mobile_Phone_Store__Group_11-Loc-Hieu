@@ -9,20 +9,20 @@ class Api_Service {
   }
 
   delete_Api_Product(id) {
-    const delete_Api_Product = axios({
+    const promise_Delete_Product = axios({
       url: `https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products/${id}`,
       method: "DELETE",
     });
 
-    return delete_Api_Product;
+    return promise_Delete_Product;
   }
 
   edit_Api_Product(id) {
-    const edit_Api_Product = axios({
+    const promise_Edit_Product = axios({
       url: `https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products/${id}`,
       method: "GET",
     });
-    return edit_Api_Product;
+    return promise_Edit_Product;
   }
 }
 export default Api_Service;

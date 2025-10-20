@@ -8,13 +8,12 @@ class Api_Service {
     return get_Api_Promise;
   }
 
-  delete_Api_Product(id) {
-    const delete_Api_Product = axios({
+  get_Product_By_ID(id) {
+    const get_Product_Request = axios({
       url: `https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products/${id}`,
-      method: "DELETE",
+      method: "GET",
     });
-
-    return delete_Api_Product;
+    return get_Product_Request;
   }
 }
 export default Api_Service;
