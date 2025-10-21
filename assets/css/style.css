@@ -1596,8 +1596,17 @@ button.secondary-outline:hover {
   align-items: center;
   padding: 0.5rem 0;
 }
+<<<<<<< HEAD
 .product-content .product-right .filter-section select {
   padding: 0.6rem 1rem;
+=======
+.product-content .product-right .filter-section .select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.product-content .product-right .filter-section .select-wrapper select {
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+>>>>>>> Loc
   border: 1px solid #4b5563;
   border-radius: 8px;
   background: white;
@@ -1606,17 +1615,44 @@ button.secondary-outline:hover {
   transition: all 0.3s ease;
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+<<<<<<< HEAD
 }
 .product-content .product-right .filter-section select:hover, .product-content .product-right .filter-section select:focus {
+=======
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.product-content .product-right .filter-section .select-wrapper select:hover, .product-content .product-right .filter-section .select-wrapper select:focus {
+>>>>>>> Loc
   border-color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   outline: none;
 }
+<<<<<<< HEAD
+=======
+.product-content .product-right .filter-section .select-wrapper i {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+>>>>>>> Loc
 @media (max-width: 640px) {
   .product-content .product-right .filter-section {
     flex-direction: column;
   }
+<<<<<<< HEAD
   .product-content .product-right .filter-section select {
+=======
+  .product-content .product-right .filter-section .select-wrapper {
+    width: 100%;
+  }
+  .product-content .product-right .filter-section .select-wrapper select {
+>>>>>>> Loc
     width: 100%;
   }
 }

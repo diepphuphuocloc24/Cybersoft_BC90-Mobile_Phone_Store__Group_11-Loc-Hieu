@@ -1,9 +1,18 @@
 import Api_Service from "./../services/apiService.js";
 import Product from "./../models/product.js";
+<<<<<<< HEAD
+=======
+import Manager from "./../models/manager.js";
+>>>>>>> Loc
 import Validation from "./../models/validation.js";
 
 const api = new Api_Service();
 
+<<<<<<< HEAD
+=======
+const manager = new Manager();
+
+>>>>>>> Loc
 const validation = new Validation();
 
 // Dom tới Element ID
@@ -37,7 +46,13 @@ const render_UI = (array_Product) => {
         <td>${object_Product.name}</td>
         <td><img src="${object_Product.img}" alt="${object_Product.name}"/>
         </td>
+<<<<<<< HEAD
         <td class="price">${object_Product.price} ₫</td>
+=======
+          <td class="price">${Number(object_Product.price).toLocaleString(
+            "vi-VN"
+          )} ₫</td>
+>>>>>>> Loc
           <td style="vertical-align: middle;">
             <span class="stock ${
               object_Product.stock === "stock" ? "inventory" : ""
@@ -70,7 +85,13 @@ const btn_Delete = (id) => {
 
       get_Array_Product();
 
+<<<<<<< HEAD
       alert(`Sản phẩm ${object_Product.name} đã được xóa thành công`);
+=======
+      alert(
+        `Sản phẩm ID là ${object_Product.id} - ${object_Product.name} đã được xóa thành công`
+      );
+>>>>>>> Loc
     })
     .catch((error) => {
       console.log(error.data);
@@ -93,7 +114,11 @@ const btn_Edit = (id) => {
       const object_Product = result.data;
       console.log(object_Product);
       dom_Element_ID("productId").value = object_Product.id;
+<<<<<<< HEAD
       dom_Element_ID("productId").disabled = "true";
+=======
+      dom_Element_ID("productId").disabled = true;
+>>>>>>> Loc
       dom_Element_ID("productName").value = object_Product.name;
       dom_Element_ID("productPrice").value = object_Product.price;
       dom_Element_ID("productType").value = object_Product.type.toLowerCase();
@@ -119,6 +144,17 @@ dom_Element_ID("btnAddProduct").onclick = function () {
 
   document.getElementsByClassName("btn-update")[0].style.display = "none";
 
+<<<<<<< HEAD
+=======
+  dom_Element_ID("productId").disabled = false;
+};
+
+// Dom tới nút submit trong modal thêm sản phẩm
+dom_Element_ID("btnSubmit").onclick = function (e) {
+  e.preventDefault();
+
+  // Dom tới người dùng nhập
+>>>>>>> Loc
   const input_Id = dom_Element_ID("productId").value;
   const input_Name = dom_Element_ID("productName").value;
   const input_Price = dom_Element_ID("productPrice").value;
@@ -130,16 +166,100 @@ dom_Element_ID("btnAddProduct").onclick = function () {
   const input_Stock = dom_Element_ID("productStock").value;
   const input_Desc = dom_Element_ID("productDesc").value;
 
+<<<<<<< HEAD
   const object_Product = new Product(
     input_Id,
     input_Name,
     input_Price,
     input_Type,
+=======
+  const product = new Product(
+    input_Id,
+    input_Name,
+    input_Price,
+>>>>>>> Loc
     input_Screen,
     input_Back_Camera,
     input_Front_Camera,
     input_Img,
+<<<<<<< HEAD
     input_Stock,
     input_Desc
   );
+=======
+    input_Desc,
+    input_Type,
+    input_Stock
+  );
+
+  const array_Cart = manager.btn_Add_Cart(product);
+  console.log(array_Cart);
+
+  const add_Product = api.add_Api_Product(product);
+
+  add_Product
+    .then((result) => {
+      const object_Product = result.data;
+      get_Array_Product();
+
+      // Dom tới nút đóng để close sau khi thêm
+      document.getElementsByClassName("close-btn")[0].click();
+
+      // Báo lại cho người dùng là thêm
+      alert(
+        `Sản phẩm ID là ${object_Product.id} - ${object_Product.name} đã được thêm thành công`
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+// Dom tới nút update trong modal sửa sản phẩm
+dom_Element_ID("btnUpdate").onclick = function (e) {
+  e.preventDefault();
+  // Dom tới người dùng nhập
+  const input_Id = dom_Element_ID("productId").value;
+  const input_Name = dom_Element_ID("productName").value;
+  const input_Price = dom_Element_ID("productPrice").value;
+  const input_Type = dom_Element_ID("productType").value;
+  const input_Screen = dom_Element_ID("productScreen").value;
+  const input_Back_Camera = dom_Element_ID("productBackCamera").value;
+  const input_Front_Camera = dom_Element_ID("productFrontCamera").value;
+  const input_Img = dom_Element_ID("productImg").value;
+  const input_Stock = dom_Element_ID("productStock").value;
+  const input_Desc = dom_Element_ID("productDesc").value;
+
+  const product = new Product(
+    input_Id,
+    input_Name,
+    input_Price,
+    input_Screen,
+    input_Back_Camera,
+    input_Front_Camera,
+    input_Img,
+    input_Desc,
+    input_Type,
+    input_Stock
+  );
+
+  const array_Cart = manager.btn_Add_Cart(product);
+  console.log(array_Cart);
+
+  const update_Product = api.update_Api_Product(product);
+  update_Product
+    .then((result) => {
+      const object_Product = result.data;
+      get_Array_Product();
+      // Dom tới nút đóng để close sau khi thêm
+      document.getElementsByClassName("close-btn")[0].click();
+      // Báo lại cho người dùng là thêm
+      alert(
+        `Sản phẩm ID là ${object_Product.id} - ${object_Product.name} đã được cập nhật thành công`
+      );
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+>>>>>>> Loc
 };

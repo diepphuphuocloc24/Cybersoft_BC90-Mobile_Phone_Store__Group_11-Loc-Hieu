@@ -25,7 +25,7 @@
   }
 
   .product-right {
-    flex: 4 1 80%; // từ 75% → 80%
+    flex: 4 1 80%;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -38,29 +38,52 @@
       align-items: center;
       padding: 0.5rem 0;
 
-      select {
-        padding: 0.6rem 1rem;
-        border: 1px solid $gray-600;
-        border-radius: 8px;
-        background: $light;
-        color: $gray-600;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      .select-wrapper {
+        position: relative;
+        display: inline-block;
 
-        &:hover,
-        &:focus {
-          border-color: $dark;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          outline: none;
+        select {
+          padding: 0.6rem 2.5rem 0.6rem 1rem;
+          border: 1px solid $gray-600;
+          border-radius: 8px;
+          background: $light;
+          color: $gray-600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+          appearance: none;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+
+          &:hover,
+          &:focus {
+            border-color: $dark;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            outline: none;
+          }
+        }
+
+        i {
+          position: absolute;
+          right: 1rem;
+          top: 50%;
+          transform: translateY(-50%);
+          pointer-events: none;
+          font-size: 0.875rem;
+          color: $gray-600;
         }
       }
 
       @media (max-width: 640px) {
         flex-direction: column;
-        select {
+
+        .select-wrapper {
           width: 100%;
+
+          select {
+            width: 100%;
+          }
         }
       }
     }

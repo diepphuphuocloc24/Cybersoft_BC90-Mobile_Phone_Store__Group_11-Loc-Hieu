@@ -24,5 +24,26 @@ class Api_Service {
     });
     return promise_Edit_Product;
   }
+<<<<<<< HEAD
+=======
+
+  add_Api_Product(product) {
+    const promise_Add_Product = axios({
+      url: "https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products",
+      method: "POST",
+      data: product,
+    });
+    return promise_Add_Product;
+  }
+
+  update_Api_Product(product) {
+    const promise_Update_Product = axios({
+      url: `https://68e90f09f2707e6128cd5c12.mockapi.io/api/Products/${product.id}`,
+      method: "PUT",
+      data: product,
+    });
+    return promise_Update_Product;
+  }
+>>>>>>> Loc
 }
 export default Api_Service;
