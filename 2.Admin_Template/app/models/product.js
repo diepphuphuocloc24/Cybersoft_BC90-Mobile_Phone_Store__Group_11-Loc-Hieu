@@ -8,12 +8,8 @@ class Product {
     frontCamera,
     img,
     desc,
-<<<<<<< HEAD
-    type
-=======
     type,
     stock
->>>>>>> Loc
   ) {
     this.id = id;
     this.name = name;
@@ -24,10 +20,7 @@ class Product {
     this.img = img;
     this.desc = desc;
     this.type = type;
-<<<<<<< HEAD
-=======
     this.stock = stock;
->>>>>>> Loc
   }
 }
 export default Product;

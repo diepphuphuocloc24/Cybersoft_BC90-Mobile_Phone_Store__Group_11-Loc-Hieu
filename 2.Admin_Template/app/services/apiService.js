@@ -24,8 +24,6 @@ class Api_Service {
     });
     return promise_Edit_Product;
   }
-<<<<<<< HEAD
-=======
 
   add_Api_Product(product) {
     const promise_Add_Product = axios({
@@ -44,6 +42,5 @@ class Api_Service {
     });
     return promise_Update_Product;
   }
->>>>>>> Loc
 }
 export default Api_Service;

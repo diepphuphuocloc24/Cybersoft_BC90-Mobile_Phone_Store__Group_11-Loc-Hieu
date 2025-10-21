@@ -3,31 +3,6 @@ import Api_Service from "./../services/apiService.js";
 import Validation from "./../models/validation.js";
 
 const manager = new Manager();
-<<<<<<< HEAD
-
-const api = new Api_Service();
-
-const validation = new Validation();
-
-// Dom tới Element ID
-const dom_Element_ID = (id) => {
-  return document.getElementById(id);
-};
-
-// Lấy thông tin sản phẩm
-const get_Array_Product = () => {
-  const get_Promise = api.get_Api_Promise();
-
-  get_Promise
-    .then((result) => {
-      render_UI(result.data);
-    })
-    .catch((error) => {
-      console.log(error.data);
-    });
-};
-
-=======
 const api = new Api_Service();
 const validation = new Validation();
 
@@ -40,7 +15,6 @@ const get_Array_Product = () => {
     .then((result) => render_UI(result.data))
     .catch((error) => console.log(error.data));
 };
->>>>>>> Loc
 get_Array_Product();
 
 // Render ra UI
@@ -59,13 +33,9 @@ const render_UI = (array_Product) => {
           }">
           ${object_Product.stock === "new" ? "Hàng mới về" : "Hàng tồn kho"}
           </p>
-<<<<<<< HEAD
-          <p class="price">${object_Product.price} ₫</p>
-=======
           <p class="price">${Number(object_Product.price).toLocaleString(
             "vi-VN"
           )} ₫</p>
->>>>>>> Loc
           <p class="description">Với màn hình ${
             object_Product.screen
           }.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${
@@ -81,34 +51,6 @@ const render_UI = (array_Product) => {
   dom_Element_ID("product-list").innerHTML = contentHTML;
 };
 
-<<<<<<< HEAD
-// Khi bấm vào nút thêm vào giỏ hàng
-function btn_Add_Cart(id) {
-  const get_Product_Promise = api.get_Product_By_ID(id);
-
-  get_Product_Promise
-    .then((result) => {
-      const object_Product = result.data;
-      console.log(object_Product);
-
-      render_Cart(object_Product);
-    })
-    .catch((error) => {
-      console.log(error.data);
-    });
-}
-
-window.btn_Add_Cart = btn_Add_Cart;
-
-array_Cart = [];
-
-// Render Cart List
-const render_Cart = (object_Product) => {
-  // const contentCart = "";
-  array_Cart.push(object_Product);
-  console.log(array_Cart);
-};
-=======
 // Khi bấm Thêm vào giỏ
 function btn_Add_Cart(id) {
   const get_Product_Promise = api.get_Product_By_ID(id);
@@ -178,4 +120,3 @@ const get_Local_Storage = () => {
   }
 };
 get_Local_Storage();
->>>>>>> Loc
