@@ -2135,4 +2135,11 @@ button.secondary-outline:hover {
     transform: translateY(0);
     opacity: 1;
   }
+}
+.empty-cart {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #999999;
+  padding: 2rem 0;
 }/*# sourceMappingURL=style.css.map */

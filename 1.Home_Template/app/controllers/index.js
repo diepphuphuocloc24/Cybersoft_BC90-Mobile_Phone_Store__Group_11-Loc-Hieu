@@ -3,7 +3,9 @@ import Api_Service from "./../services/apiService.js";
 import Validation from "./../models/validation.js";
 
 const manager = new Manager();
+
 const api = new Api_Service();
+
 const validation = new Validation();
 
 const dom_Element_ID = (id) => document.getElementById(id);
@@ -12,8 +14,12 @@ const dom_Element_ID = (id) => document.getElementById(id);
 const get_Array_Product = () => {
   const get_Promise = api.get_Api_Promise();
   get_Promise
-    .then((result) => render_UI(result.data))
-    .catch((error) => console.log(error.data));
+    .then((result) => {
+      render_UI(result.data);
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
 };
 get_Array_Product();
 
@@ -57,20 +63,32 @@ function btn_Add_Cart(id) {
   get_Product_Promise
     .then((result) => {
       const object_Product = result.data;
+
       render_Cart(object_Product);
+
       set_Local_Storage();
     })
-    .catch((error) => console.log(error.data));
+    .catch((error) => {
+      console.log(error.data);
+    });
 }
 window.btn_Add_Cart = btn_Add_Cart;
 
 // Render Cart
 const render_Cart = (object_Product) => {
   if (object_Product) {
-    const found = manager.array_Cart.find((p) => p.id === object_Product.id);
-    if (found) {
-      found.quantity += 1;
-    } else {
+    let found = false;
+
+    for (let i = 0; i < manager.array_Cart.length; i += 1) {
+      const product = manager.array_Cart[i];
+      if (product.id === object_Product.id) {
+        product.quantity += 1;
+        found = true;
+        break;
+      }
+    }
+
+    if (!found) {
       object_Product.quantity = 1;
       manager.btn_Add_Cart(object_Product);
     }
@@ -80,11 +98,14 @@ const render_Cart = (object_Product) => {
   let content_Cart = "";
   let total = 0;
 
-  for (let i = 0; i < array_Cart.length; i++) {
-    const product = array_Cart[i];
-    total += Number(product.price) * product.quantity;
+  if (array_Cart.length === 0) {
+    content_Cart = `<p class="empty-cart">Chưa có sản phẩm nào</p>`;
+  } else {
+    for (let i = 0; i < array_Cart.length; i += 1) {
+      const product = array_Cart[i];
+      total += Number(product.price) * product.quantity;
 
-    content_Cart += `
+      content_Cart += `
     <div class="cart-item">
       <p class="item-name">${product.name}</p>
       <img src="${product.img}" width="40px" alt="">
@@ -92,12 +113,19 @@ const render_Cart = (object_Product) => {
         "vi-VN"
       )} ₫</p>
       <div class="quantity-control">
-          <button class="qty-btn minus">−</button>
-          <span class="qty-number">${product.quantity}</span>
-          <button class="qty-btn plus">+</button>
+        <button class="qty-btn minus" onclick="handle_Minus(${
+          product.id
+        })">−</button>
+        <span class="qty-number">${product.quantity}</span>
+        <button class="qty-btn plus" onclick="handle_Add(${
+          product.id
+        })">+</button>
       </div>
-      <button class="remove-btn">Xóa</button>
+      <button class="remove-btn" onclick="handle_Delete(${
+        product.id
+      })">Xóa</button>
     </div>`;
+    }
   }
 
   dom_Element_ID("cart-list").innerHTML = content_Cart;
@@ -105,13 +133,13 @@ const render_Cart = (object_Product) => {
     total.toLocaleString("vi-VN") + " ₫";
 };
 
-// Lưu local
+// Lưu localStorage
 const set_Local_Storage = () => {
   const string_Cart = JSON.stringify(manager.array_Cart);
   localStorage.setItem("CART-LIST", string_Cart);
 };
 
-// Lấy local
+// Lấy từ localStorage
 const get_Local_Storage = () => {
   const string_Cart = localStorage.getItem("CART-LIST");
   if (string_Cart) {
@@ -120,3 +148,74 @@ const get_Local_Storage = () => {
   }
 };
 get_Local_Storage();
+
+// Xóa sản phẩm trong giỏ hàng
+const handle_Delete = (id) => {
+  manager.btn_delete(id);
+
+  render_Cart();
+
+  set_Local_Storage();
+};
+window.handle_Delete = handle_Delete;
+
+// Tăng số lượng sản phẩm
+const handle_Add = (id) => {
+  manager.btn_Plus(id);
+
+  render_Cart();
+
+  set_Local_Storage();
+};
+window.handle_Add = handle_Add;
+
+// Giảm số lượng sản phẩm
+const handle_Minus = (id) => {
+  manager.btn_Minus(id);
+
+  render_Cart();
+
+  set_Local_Storage();
+};
+window.handle_Minus = handle_Minus;
+
+// Bấm vào nút Xóa tất cả
+document.getElementsByClassName("btn-clear")[0].onclick = () => {
+  manager.array_Cart = [];
+
+  render_Cart();
+
+  set_Local_Storage();
+};
+
+// Bấm vào nút Thanh toán
+document.getElementsByClassName("btn-checkout")[0].onclick = () => {
+  if (manager.array_Cart.length === 0) return;
+
+  manager.array_Cart = [];
+
+  alert("Thanh toán thành công! Cảm ơn quý khách đã mua hàng!");
+
+  render_Cart();
+
+  set_Local_Storage();
+};
+
+// Filter sản phẩm
+dom_Element_ID("filter").addEventListener("change", function () {
+  const get_Promise = api.get_Api_Promise();
+  get_Promise
+    .then((result) => {
+      const array_Product = result.data;
+      // Gán về cái array_Cart của manager để có sản phẩm mà lọc
+      manager.arrary_UI = array_Product;
+
+      const selectedType = dom_Element_ID("filter").value;
+      const filterResult = manager.filter(selectedType);
+
+      render_UI(filterResult);
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+});
