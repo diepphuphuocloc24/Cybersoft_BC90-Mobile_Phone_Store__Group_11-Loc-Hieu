@@ -1,0 +1,238 @@
+// MODAL
+#cart-modal {
+  &.active {
+    display: flex;
+    animation: fadeIn 0.3s forwards;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+
+  .modal-content {
+    background: linear-gradient(110deg, $light, $primary);
+    border-radius: 1.2rem;
+    padding: 2rem;
+    width: 90%;
+    max-width: 640px;
+    box-shadow: $box-shadow-strong;
+    position: relative;
+    animation: slideUp 0.35s;
+    z-index: 1000;
+
+    h2 {
+      font-size: $text-2xl;
+      font-weight: $font-bold;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #0f172a;
+
+      i {
+        color: #6366f1;
+        font-size: $text-xl;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: $light;
+      border: none;
+      border-radius: 0.6rem;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+
+      i {
+        font-size: $text-base;
+        color: $dark;
+      }
+
+      &:hover {
+        background-color: $primary-Aquamarine;
+        color: $light;
+        transform: scale(1.1);
+      }
+    }
+
+    .cart-list {
+      max-height: 300px;
+      overflow-y: auto;
+      margin-bottom: 18px;
+      padding-right: 6px;
+
+      .cart-item {
+        background-color: $light;
+        display: grid;
+        grid-template-columns: 1fr 50px 120px auto auto;
+        align-items: center;
+        gap: 0.75rem;
+        background-color: $light;
+        padding: 0.9rem 1rem;
+        border-radius: 0.8rem;
+        margin-bottom: 0.9rem;
+        border: 1px solid $primary-Aquamarine;
+        transition: all 0.5s;
+
+        .item-name {
+          font-weight: $font-semibold;
+          color: $dark;
+        }
+
+        .item-price {
+          color: red;
+          font-weight: $font-bold;
+          font-size: $text-sm;
+        }
+
+        .quantity-control {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          justify-content: center;
+        }
+
+        .qty-btn {
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: $text-lg;
+          font-weight: $font-semibold;
+          background-color: $light;
+          color: $gray-600;
+          border: 1px solid $gray-600;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: all 0.5s;
+        }
+
+        .qty-btn:hover {
+          background-color: $light;
+          color: $gray-600;
+          border-color: $primary-RosePink;
+          transform: scale(1.08);
+          box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+
+        .qty-number {
+          font-size: $text-base;
+          font-weight: $font-semibold;
+          color: $dark;
+          min-width: 24px;
+          text-align: center;
+        }
+
+        .remove-btn {
+          background-color: white;
+          border: none;
+          color: $error;
+          cursor: pointer;
+          font-weight: $font-semibold;
+          transition: all 0.5s;
+
+          &:hover {
+            background-color: $error;
+            color: white;
+          }
+        }
+      }
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1.2rem 0;
+      font-size: $text-base;
+
+      strong {
+        color: red;
+        font-size: $text-xl;
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+
+      .btn-checkout,
+      .btn-clear {
+        border: none;
+        border-radius: 0.6rem;
+        padding: 0.7rem 1.4rem;
+        cursor: pointer;
+        font-weight: $font-semibold;
+        font-size: $text-sm;
+        transition: all 0.5s;
+      }
+
+      .btn-checkout {
+        background: linear-gradient(135deg, #3b82f6, #2563eb);
+        color: $light;
+        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
+        border: none;
+
+        &:hover {
+          background: linear-gradient(135deg, #2563eb, #1e40af);
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+
+      .btn-clear {
+        background: linear-gradient(135deg, $primary-RosePink, $error);
+        color: $light;
+        border: none;
+
+        &:hover {
+          background: linear-gradient(135deg, $error, $primary-RosePink);
+          transform: translateY(-1px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

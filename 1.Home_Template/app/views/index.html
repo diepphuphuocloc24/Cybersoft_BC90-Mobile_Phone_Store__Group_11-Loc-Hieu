@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./../../../../../assets/img/edfcd763b38d18b2a59d102a631a1699.jpg">
+    <title>LOCHIEU Mobile Store</title>
+
+    <!-- FONT AWESOME CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+
+    <!-- GOOGLE FONT BBH -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bartle&family=Manrope:wght@200..800&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- GOOGLE FONT INTER -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- FLATICON ICON CSS -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- FLOWBITE CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet">
+
+    <!-- OWL CAROUSEL -->
+    <link rel="stylesheet"
+        href="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
+    <link rel="stylesheet"
+        href="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+
+    <!-- ANIMTE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./../../../assets/css/style.css">
+</head>
+
+<body class="animate__animated animate__fadeIn wow">
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content container">
+            <a href="#" class="logo">LOCHIEU</a>
+
+            <div class="search_Bar">
+                <input type="text" placeholder="Nhập từ khóa tìm kiếm...">
+                <button class="btn_Search">Tìm kiếm</button>
+            </div>
+
+            <div class="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="btn_Right">
+                <button class="cart" data-modal-target="cart-modal" data-modal-toggle="cart-modal">Giỏ hàng <i
+                        class="fa-solid fa-cart-shopping"></i></button>
+                <button class="login">Đăng nhập <i class="fi fi-rr-user"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- CAROUSEL -->
+    <section class="carousel">
+        <div class="carousel-content container">
+            <div class="owl-carousel">
+                <div class="item"><img src="./../../../../assets/img/carousel/ff6cc3762a6caf4ee0990da1bd779455.png"
+                        alt="slide 0"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/1.webp" alt="slide 1"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/2.webp" alt="slide 2"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/3.webp" alt="slide 3"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/4.webp" alt="slide 4"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/5.jpg" alt="slide 5"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/6.webp" alt="slide 6"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/7.webp" alt="slide 7"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/8.webp" alt="slide 8"></div>
+                <div class="item"><img src="./../../../../assets/img/carousel/9.webp" alt="slide 9"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEAL 1-->
+    <section class="container img-animate">
+        <img src="./../../../../assets/img/cdd996b06beedd282c312ec8ddb0c199.png" width="100%" alt="">
+    </section>
+
+    <!-- PRODUCT -->
+    <section class="product-content">
+        <div class="product-left">
+            <img src="./../../../../assets/img/side img/side-1.webp" alt="">
+            <img src="./../../../../assets/img/side img/side-2.webp" alt="">
+        </div>
+
+        <div class="product-right">
+            <div class="filter-section">
+                <div class="select-wrapper">
+                    <select id="filter" name="filter">
+                        <option value="all" selected>Tất cả</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="oppo">Oppo</option>
+                        <option value="xiaomi">Xiaomi</option>
+                        <option value="vivo">Vivo</option>
+                        <option value="iqoo">iQOO</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+            </div>
+
+            <div class="product-list" id="product-list">
+            </div>
+        </div>
+    </section>
+
+    <!-- DEAL 2-->
+    <section class="container img-animate">
+        <img src="./../../../../assets/img/707d6ebb358c27df9b1d170e951637ff.png" width="100%" alt="">
+    </section>
+
+    <!-- MODAL GIỎ HÀNG -->
+    <div id="cart-modal" tabindex="-1" aria-hidden="true"
+        class="fixed top-0 left-0 right-0 z-50 hidden justify-center items-center w-full h-full bg-black/40">
+        <div class="modal-content">
+            <button class="close-btn" data-modal-hide="cart-modal"><i class="fa-solid fa-xmark"></i></button>
+            <h2><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng Của Bạn</h2>
+
+            <div class="cart-list" id="cart-list">
+                <div class="cart-item">
+                </div>
+            </div>
+
+            <div class="total" id="total">
+                <span>Tổng tiền:</span>
+                <strong id="total-price"></strong>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-checkout">Thanh Toán</button>
+                <button class="btn-clear">Xóa Tất Cả</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content container">
+
+            <div class="footer-section about">
+                <h3>LOCHIEU Mobile Store</h3>
+                <p>Chuyên cung cấp điện thoại chính hãng, giá tốt nhất thị trường.
+                    Cam kết uy tín - chất lượng - tận tâm phục vụ.</p>
+                <p><b>Hotline:</b> <a href="tel:+84987654321" style="color: red; text-decoration: none;">(+84) 987
+                        654
+                        321</a></p>
+                <p>(08:00 - 21:00)</p>
+                <p><b>Email:</b> <a href="mailto:diepphuphuocloc24@gmail.com"
+                        style="color: red; text-decoration: none;">diepphuphuocloc24@gmail.com</a></p>
+                <p><b>Địa chỉ:</b> 5 Trần Khắc Chân, Q.1</p>
+            </div>
+
+            <div class="footer-section links">
+                <h4>Liên kết nhanh</h4>
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="#">Khuyến mãi</a></li>
+                    <li><a href="#">Chính sách bảo hành</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section policy">
+                <h4>Chính sách & Hỗ trợ</h4>
+                <ul>
+                    <li><a href="#">Chính sách đổi trả</a></li>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Thanh toán & giao hàng</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section social">
+                <h4>Kết nối với chúng tôi</h4>
+                <div class="social-icons">
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="YouTube"></a>
+                    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="TikTok"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 LocHieu Mobile Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <section>
+        <a href="#" class="BackToTop cd-top text-replace js-cd-top"><i class="fi fi-br-chevron-double-up"></i></a>
+    </section>
+
+    <!-- PHONE CALL -->
+    <section>
+        <a href="tel:+84987654321" class="PhoneTop cd-top text-replace js-cd-top">Liên hệ ngay 0987 654 321</a>
+    </section>
+
+    <section>
+        <a href="tel:+84987654321" class="PhoneTop-icon cd-top text-replace js-cd-top"><i
+                class="fi fi-rs-phone-call"></i>
+        </a>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <!-- HEADER -->
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector(".header");
+            if (window.scrollY > 0) {
+                header.classList.add("scrolled");
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+
+        const menuToggle = document.querySelector(".menu-toggle");
+        const header = document.querySelector(".header");
+
+        menuToggle.addEventListener("click", () => {
+            header.classList.toggle("nav-open");
+        });
+    </script>
+
+    <!-- JQUERY JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <!-- FLOWBITE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
+
+    <!-- OWL CAROUSEL -->
+    <script src="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: true,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 1
+                },
+                1000: {
+                    items: 1
+                }
+            }
+        })
+    </script>
+
+    <!-- BACK TO TOP JS -->
+    <script src="./../../../assets/libs/back-to-top-master/assets/js/main.js"></script>
+    <script src="./../../../assets/libs/back-to-top-master/assets/js/util.js"></script>
+
+    <!-- WOW JS -->
+    <script src="./../../../assets/libs/WOW-master/dist/wow.min.js"></script>
+    <script>
+        new WOW().init();
+    </script>
+
+    <!-- AXIOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+        integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- MAIN JS -->
+    <script type="module" src="./../controllers/index.js"></script>
+</body>
+
+</html>

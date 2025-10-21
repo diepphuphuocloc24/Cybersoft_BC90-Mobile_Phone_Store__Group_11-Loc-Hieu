@@ -1,0 +1,108 @@
+/* BACK TO TOP */
+.BackToTop {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+
+  background-color: $dark;
+  box-shadow: -4px 4px 24px -10px #f55f8d;
+  border-radius: 8px;
+
+  text-align: center;
+
+  position: fixed;
+  right: 15px;
+  bottom: 80px;
+
+  font-size: $text-lg;
+  color: $light;
+  transition: all 0.2s;
+
+  opacity: 0;
+
+  &:hover {
+    background-color: $gray-600;
+    color: $light;
+    text-decoration: none;
+  }
+}
+
+.cd-top--is-visible {
+  visibility: visible;
+  opacity: 0.8;
+}
+
+.PhoneTop {
+  width: 270px;
+  height: 40px;
+  line-height: 40px;
+  box-shadow: -4px 4px 24px -10px #f55f8d;
+  border-radius: 8px;
+
+  text-align: center;
+
+  position: fixed;
+  right: 60px;
+  bottom: 15px;
+
+  font-size: $text-lg;
+  background-color: red;
+  color: $light;
+
+  &:hover {
+    background-color: $primary-RosePink;
+    color: $light;
+    text-decoration: none;
+  }
+}
+
+.PhoneTop-icon {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  box-shadow: -4px 4px 24px -10px #f55f8d;
+  border: 1px solid red;
+  border-radius: 50%;
+
+  text-align: center;
+
+  position: fixed;
+  right: 15px;
+  bottom: 5px;
+
+  font-size: $text-2xl;
+  background-color: $light;
+  color: red;
+  animation: SlightlyRotate 0.3s infinite;
+
+  &:hover {
+    background-color: $light;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .BackToTop,
+  .PhoneTop,
+  .PhoneTop-icon {
+    font-size: $text-base;
+  }
+
+  .BackToTop {
+    bottom: 60px;
+  }
+
+  .PhoneTop {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+
+    right: 55px;
+  }
+
+  .PhoneTop-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+  }
+}
