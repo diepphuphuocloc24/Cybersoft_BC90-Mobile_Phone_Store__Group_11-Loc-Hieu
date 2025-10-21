@@ -236,3 +236,11 @@
     opacity: 1;
   }
 }
+
+.empty-cart {
+  text-align: center;
+  font-size: $text-xl; // hoặc 1.25rem nếu chưa khai báo $text-xl
+  font-weight: 600; // hoặc bold nếu muốn nổi bật
+  color: #999999; // màu xám nhạt
+  padding: 2rem 0; // tạo khoảng cách trên/dưới
+}
