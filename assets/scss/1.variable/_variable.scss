@@ -82,49 +82,61 @@ $p-10: 2.5rem;
   .m-#{$i} {
     margin: $value;
   }
+
   .mt-#{$i} {
     margin-top: $value;
   }
+
   .mb-#{$i} {
     margin-bottom: $value;
   }
+
   .ml-#{$i} {
     margin-left: $value;
   }
+
   .mr-#{$i} {
     margin-right: $value;
   }
+
   .mx-#{$i} {
-    margin-top: $value;
-    margin-bottom: $value;
-  }
-  .my-#{$i} {
     margin-left: $value;
     margin-right: $value;
   }
 
-  // Padding
+  .my-#{$i} {
+    margin-top: $value;
+    margin-bottom: $value;
+  }
+
+  // Padding (đã sửa đúng)
   .p-#{$i} {
-    margin: $value;
+    padding: $value;
   }
+
   .pt-#{$i} {
-    margin-top: $value;
+    padding-top: $value;
   }
+
   .pb-#{$i} {
-    margin-bottom: $value;
+    padding-bottom: $value;
   }
+
   .pl-#{$i} {
-    margin-left: $value;
+    padding-left: $value;
   }
+
   .pr-#{$i} {
-    margin-right: $value;
+    padding-right: $value;
   }
+
   .px-#{$i} {
-    margin-top: $value;
-    margin-bottom: $value;
+    padding-left: $value;
+    padding-right: $value;
   }
+
   .py-#{$i} {
-    margin-left: $value;
-    margin-right: $value;
+    padding-top: $value;
+    padding-bottom: $value;
   }
 }

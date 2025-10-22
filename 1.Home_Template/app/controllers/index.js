@@ -1,12 +1,9 @@
 import Manager from "./../models/manager.js";
 import Api_Service from "./../services/apiService.js";
-import Validation from "./../models/validation.js";
 
 const manager = new Manager();
 
 const api = new Api_Service();
-
-const validation = new Validation();
 
 const dom_Element_ID = (id) => document.getElementById(id);
 
@@ -106,26 +103,39 @@ const render_Cart = (object_Product) => {
       total += Number(product.price) * product.quantity;
 
       content_Cart += `
-    <div class="cart-item">
-      <p class="item-name">${product.name}</p>
-      <img src="${product.img}" width="40px" alt="">
-      <p class="item-price">${Number(product.price).toLocaleString(
-        "vi-VN"
-      )} ₫</p>
-      <div class="quantity-control">
-        <button class="qty-btn minus" onclick="handle_Minus(${
-          product.id
-        })">−</button>
-        <span class="qty-number">${product.quantity}</span>
-        <button class="qty-btn plus" onclick="handle_Add(${
-          product.id
-        })">+</button>
-      </div>
-      <button class="remove-btn" onclick="handle_Delete(${
-        product.id
-      })">Xóa</button>
-    </div>`;
+      <div class="cart-item">
+        <h3>${i + 1}</h3>
+        <img src="${product.img}" alt="product">
+        <div class="cart-item-main">
+            <div class="cart-item-content">
+                <div class="cart-item-info">
+                    <h3 class="item-name">${product.name}</h3>
+
+                    <div class="item-right">
+                        <h4 class="item-price">${Number(
+                          product.price
+                        ).toLocaleString("vi-VN")} ₫</h4>
+                        <div class="quantity-control">
+                            <button class="qty-btn minus" onclick="handle_Minus(${
+                              product.id
+                            })">−</button>
+                            <span class="qty-number">${product.quantity}</span>
+                            <button class="qty-btn plus" onclick="handle_Add(${
+                              product.id
+                            })">+</button>
+                        </div>
+                    </div>
+                </div>
+                <button class="remove-btn" onclick="handle_Delete(${
+                  product.id
+                })">Xóa</button>
+            </div>
+        </div>
+    </div>
+      `;
     }
+
+    total += 30000; // Phí vận chuyển
   }
 
   dom_Element_ID("cart-list").innerHTML = content_Cart;
@@ -195,6 +205,8 @@ document.getElementsByClassName("btn-checkout")[0].onclick = () => {
   manager.array_Cart = [];
 
   alert("Thanh toán thành công! Cảm ơn quý khách đã mua hàng!");
+
+  document.getElementsByClassName("close-btn")[0].click();
 
   render_Cart();
 

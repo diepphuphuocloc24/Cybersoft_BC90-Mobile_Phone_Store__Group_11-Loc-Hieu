@@ -32,6 +32,8 @@
         href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-straight/css/uicons-thin-straight.css'>
 
     <!-- TAILWIND CSS -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -68,8 +70,9 @@
             </div>
 
             <div class="btn_Right">
-                <button class="cart" data-modal-target="cart-modal" data-modal-toggle="cart-modal">Giỏ hàng <i
-                        class="fa-solid fa-cart-shopping"></i></button>
+                <button data-modal-target="cart-modal" data-modal-toggle="cart-modal" class="cart">
+                    Giỏ hàng <i class="fa-solid fa-cart-shopping"></i>
+                </button>
                 <button class="login">Đăng nhập <i class="fi fi-rr-user"></i></button>
             </div>
         </div>
@@ -135,21 +138,45 @@
     <!-- MODAL GIỎ HÀNG -->
     <div id="cart-modal" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden justify-center items-center w-full h-full bg-black/40">
-        <div class="modal-content">
-            <button class="close-btn" data-modal-hide="cart-modal"><i class="fa-solid fa-xmark"></i></button>
-            <h2><i class="fa-solid fa-cart-shopping"></i> Giỏ Hàng Của Bạn</h2>
+        <div class="cart-modal">
+            <button class="close-btn" data-modal-hide="cart-modal">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
 
-            <div class="cart-list" id="cart-list">
-            </div>
+            <h2 class="cart-modal-title">
+                <i class="fi fi-ts-shopping-bag"></i> Giỏ hàng của tôi
+            </h2>
 
-            <div class="total" id="total">
-                <span>Tổng tiền:</span>
-                <strong id="total-price"></strong>
-            </div>
+            <div class="cart-modal-body">
 
-            <div class="modal-actions">
-                <button class="btn-checkout">Thanh Toán</button>
-                <button class="btn-clear">Xóa Tất Cả</button>
+                <div class="modal-left">
+                    <div id="cart-list">
+                    </div>
+                </div>
+
+                <div class="modal-right">
+                    <p class="discount-label">Mã giảm giá</p>
+
+                    <div class="discount-group">
+                        <input type="text" placeholder="Nhập mã giảm giá">
+                        <button class="apply-btn">Áp dụng</button>
+                    </div>
+
+                    <div class="price-row">
+                        <p>Phí ship:</p>
+                        <p>30.000đ</p>
+                    </div>
+
+                    <div class="total" id="total">
+                        <span>Tổng tiền:</span>
+                        <strong id="total-price">0 ₫</strong>
+                    </div>
+
+                    <div class="modal-actions">
+                        <button class="btn-checkout">Thanh Toán</button>
+                        <button class="btn-clear">Xóa Tất Cả</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -162,7 +189,8 @@
                 <h3>LOCHIEU Mobile Store</h3>
                 <p>Chuyên cung cấp điện thoại chính hãng, giá tốt nhất thị trường.
                     Cam kết uy tín - chất lượng - tận tâm phục vụ.</p>
-                <p><b>Hotline:</b> <a href="tel:+84987654321" style="color: red; text-decoration: none;">(+84) 987
+                <p><b>Hotline:</b> <a href="tel:+84987654321" style="color: red; text-decoration: none;">(+84)
+                        987
                         654
                         321</a></p>
                 <p>(08:00 - 21:00)</p>
@@ -215,7 +243,8 @@
 
     <!-- PHONE CALL -->
     <section>
-        <a href="tel:+84987654321" class="PhoneTop cd-top text-replace js-cd-top">Liên hệ ngay 0987 654 321</a>
+        <a href="tel:+84987654321" class="PhoneTop cd-top text-replace js-cd-top">Liên hệ ngay 0987 654
+            321</a>
     </section>
 
     <section>
