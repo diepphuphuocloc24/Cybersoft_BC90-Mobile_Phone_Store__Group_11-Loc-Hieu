@@ -45,9 +45,9 @@ const render_UI = (array_Product) => {
       object_Product.frontCamera
     }</p>
           <p class="description2">${object_Product.desc}</p>
-          <button class="btn-add" onclick="btn_Add_Cart(${
-            object_Product.id
-          })">Thêm vào giỏ</button>
+<button class="btn-add" onclick="btn_Add_Cart('${
+      object_Product.id
+    }')">Thêm vào giỏ</button>
       </div>
     `;
   }
@@ -116,19 +116,19 @@ const render_Cart = (object_Product) => {
                           product.price
                         ).toLocaleString("vi-VN")} ₫</h4>
                         <div class="quantity-control">
-                            <button class="qty-btn minus" onclick="handle_Minus(${
-                              product.id
-                            })">−</button>
+                          <button class="qty-btn minus" onclick="handle_Minus('${
+                            product.id
+                          }')">−</button>
                             <span class="qty-number">${product.quantity}</span>
-                            <button class="qty-btn plus" onclick="handle_Add(${
-                              product.id
-                            })">+</button>
+                          <button class="qty-btn plus" onclick="handle_Add('${
+                            product.id
+                          }')">+</button>
                         </div>
                     </div>
                 </div>
-                <button class="remove-btn" onclick="handle_Delete(${
-                  product.id
-                })">Xóa</button>
+              <button class="remove-btn" onclick="handle_Delete('${
+                product.id
+              }')">Xóa</button>
             </div>
         </div>
     </div>
