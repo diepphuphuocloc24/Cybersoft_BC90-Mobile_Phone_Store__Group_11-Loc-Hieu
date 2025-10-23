@@ -51,12 +51,16 @@ const render_UI = (array_Product) => {
             </span>
           </td>
         <td>
-        <button class="btn edit" onclick="btn_Edit(${
-          object_Product.id
-        })" data-toggle="modal" data-target="#cart-modal">Sửa</button>
-        <button class="btn delete" onclick="btn_Delete(${
-          object_Product.id
-        })">Xóa</button>
+          <button class="btn edit"
+            onclick="btn_Edit('${object_Product.id}')"
+            data-toggle="modal" data-target="#cart-modal">
+            Sửa
+          </button>
+
+          <button class="btn delete"
+            onclick="btn_Delete('${object_Product.id}')">
+            Xóa
+          </button>
         </td>
       </tr>
     `;

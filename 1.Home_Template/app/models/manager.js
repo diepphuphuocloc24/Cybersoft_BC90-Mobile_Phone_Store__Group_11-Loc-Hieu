@@ -11,8 +11,7 @@ class Manager {
   Find_Index(id) {
     let index = -1;
     for (let i = 0; i < this.array_Cart.length; i++) {
-      if (Number(this.array_Cart[i].id) === Number(id)) {
-        // ép kiểu để khớp
+      if (this.array_Cart[i].id === id) {
         index = i;
         break;
       }
