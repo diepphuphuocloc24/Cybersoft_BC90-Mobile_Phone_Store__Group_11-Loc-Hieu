@@ -26,30 +26,30 @@ const render_UI = (array_Product) => {
   for (let i = 0; i < array_Product.length; i += 1) {
     const object_Product = array_Product[i];
     contentHTML += `
-      <div class="product">
-          <span class="badge-left">Giảm sốc</span>
-          <span class="badge-right">Trả góp 0%</span>
-          <img src="${object_Product.img}" alt="${object_Product.type}">
-          <h3>${object_Product.name}</h3>
-          <p class="stock ${
-            object_Product.stock === "stock" ? "inventory" : ""
-          }">
-          ${object_Product.stock === "new" ? "Hàng mới về" : "Hàng tồn kho"}
-          </p>
-          <p class="price">${Number(object_Product.price).toLocaleString(
-            "vi-VN"
-          )} ₫</p>
-          <p class="description">Với màn hình ${
-            object_Product.screen
-          }.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${
+        <div class="product">
+            <span class="badge-left">Giảm sốc</span>
+            <span class="badge-right">Trả góp 0%</span>
+            <img src="${object_Product.img}" alt="${object_Product.type}">
+            <h3>${object_Product.name}</h3>
+            <p class="stock ${
+              object_Product.stock === "stock" ? "inventory" : ""
+            }">
+            ${object_Product.stock === "new" ? "Hàng mới về" : "Hàng tồn kho"}
+            </p>
+            <p class="price">${Number(object_Product.price).toLocaleString(
+              "vi-VN"
+            )} ₫</p>
+            <p class="description">Với màn hình ${
+              object_Product.screen
+            }.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${
       object_Product.frontCamera
     }</p>
-          <p class="description2">${object_Product.desc}</p>
-<button class="btn-add" onclick="btn_Add_Cart('${
-      object_Product.id
-    }')">Thêm vào giỏ</button>
-      </div>
-    `;
+            <p class="description2">${object_Product.desc}</p>
+  <button class="btn-add" onclick="btn_Add_Cart('${
+    object_Product.id
+  }')">Thêm vào giỏ</button>
+        </div>
+      `;
   }
   dom_Element_ID("product-list").innerHTML = contentHTML;
 };
@@ -61,6 +61,7 @@ function btn_Add_Cart(id) {
     .then((result) => {
       const object_Product = result.data;
 
+      manager.btn_Add_Cart(object_Product);
       render_Cart(object_Product);
 
       set_Local_Storage();
@@ -71,76 +72,70 @@ function btn_Add_Cart(id) {
 }
 window.btn_Add_Cart = btn_Add_Cart;
 
-// Render Cart
-const render_Cart = (object_Product) => {
-  if (object_Product) {
-    let found = false;
+// Tính tổng tiền
+const calculate_Total = (array_Cart) => {
+  if (array_Cart.length === 0) {
+    return 0;
+  } else {
+    const subtotal = array_Cart.reduce((total, product) => {
+      return total + product.price * product.quantity;
+    }, 0);
 
-    for (let i = 0; i < manager.array_Cart.length; i += 1) {
-      const product = manager.array_Cart[i];
-      if (product.id === object_Product.id) {
-        product.quantity += 1;
-        found = true;
-        break;
-      }
-    }
-
-    if (!found) {
-      object_Product.quantity = 1;
-      manager.btn_Add_Cart(object_Product);
-    }
+    return subtotal + 30000; // phí ship
   }
+};
 
+// Render Cart
+const render_Cart = () => {
   const array_Cart = manager.array_Cart;
+
   let content_Cart = "";
-  let total = 0;
 
   if (array_Cart.length === 0) {
     content_Cart = `<p class="empty-cart">Chưa có sản phẩm nào</p>`;
   } else {
     for (let i = 0; i < array_Cart.length; i += 1) {
       const product = array_Cart[i];
-      total += Number(product.price) * product.quantity;
-
       content_Cart += `
-      <div class="cart-item">
-        <h3>${i + 1}</h3>
-        <img src="${product.img}" alt="product">
-        <div class="cart-item-main">
-            <div class="cart-item-content">
-                <div class="cart-item-info">
-                    <h3 class="item-name">${product.name}</h3>
+        <div class="cart-item">
+          <h3>${i + 1}</h3>
+          <img src="${product.img}" alt="product">
+          <div class="cart-item-main">
+              <div class="cart-item-content">
+                  <div class="cart-item-info">
+                      <h3 class="item-name">${product.name}</h3>
 
-                    <div class="item-right">
-                        <h4 class="item-price">${Number(
-                          product.price
-                        ).toLocaleString("vi-VN")} ₫</h4>
-                        <div class="quantity-control">
-                          <button class="qty-btn minus" onclick="handle_Minus('${
-                            product.id
-                          }')">−</button>
-                            <span class="qty-number">${product.quantity}</span>
-                          <button class="qty-btn plus" onclick="handle_Add('${
-                            product.id
-                          }')">+</button>
-                        </div>
-                    </div>
-                </div>
-              <button class="remove-btn" onclick="handle_Delete('${
-                product.id
-              }')">Xóa</button>
-            </div>
-        </div>
-    </div>
-      `;
+                      <div class="item-right">
+                          <h4 class="item-price">${product.price.toLocaleString(
+                            "vi-VN"
+                          )} ₫</h4>
+                          <div class="quantity-control">
+                            <button class="qty-btn minus" onclick="handle_Minus('${
+                              product.id
+                            }')">−</button>
+                              <span class="qty-number">${
+                                product.quantity
+                              }</span>
+                            <button class="qty-btn plus" onclick="handle_Add('${
+                              product.id
+                            }')">+</button>
+                          </div>
+                      </div>
+                  </div>
+                <button class="remove-btn" onclick="handle_Delete('${
+                  product.id
+                }')">Xóa</button>
+              </div>
+          </div>
+      </div>
+        `;
     }
-
-    total += 30000; // Phí vận chuyển
   }
 
   dom_Element_ID("cart-list").innerHTML = content_Cart;
+
   dom_Element_ID("total-price").innerHTML =
-    total.toLocaleString("vi-VN") + " ₫";
+    calculate_Total(array_Cart).toLocaleString("vi-VN") + " ₫";
 };
 
 // Lưu localStorage
