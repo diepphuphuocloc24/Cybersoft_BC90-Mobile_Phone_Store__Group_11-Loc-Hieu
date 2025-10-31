@@ -1,6 +1,6 @@
 // LOGIN
 .popup-login {
-  width: 320px;
+  width: 480px;
   padding: $p-5;
   border-radius: 12px;
   background: $light;
@@ -21,7 +21,7 @@
     color: $gray-600;
 
     &:hover {
-      color: $dark;
+      color: red;
     }
   }
 

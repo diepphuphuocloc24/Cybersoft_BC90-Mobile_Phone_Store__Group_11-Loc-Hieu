@@ -79,6 +79,19 @@ h2 {
   line-height: $h-3xl;
 }
 
+.title {
+  text-align: center;
+  font-size: $text-2xl;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: $dark;
+}
+
+.deal {
+  margin: 5rem 0;
+  cursor: pointer;
+}
+
 button {
   @include button-style($primary-RosePink, $light);
 
@@ -134,6 +147,7 @@ button {
 
 .card {
   @include card-style;
+
   &.highlight {
     background: $gradient-primary;
     color: $dark;
@@ -160,6 +174,7 @@ button {
     transform: scale(0.95);
     opacity: 1;
   }
+
   50% {
     transform: scale(1);
     opacity: 0.9;
@@ -175,6 +190,7 @@ button {
     opacity: 0;
     transform: translateY(-10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -182,6 +198,70 @@ button {
 }
 
 // ANIMATE
-.animate__animated .animate__fadeIn {
+:root {
+  --animate-duration: 2s;
+}
+
+@-webkit-keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, -50%, 0);
+    transform: translate3d(0, -50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInDown {
+  -webkit-animation-name: fadeInDown;
+  animation-name: fadeInDown;
+  --animate-duration: 2s;
+}
+
+@-webkit-keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 50%, 0);
+    transform: translate3d(0, 50%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInUp {
+  -webkit-animation-name: fadeInUp;
+  animation-name: fadeInUp;
   --animate-duration: 2s;
 }
