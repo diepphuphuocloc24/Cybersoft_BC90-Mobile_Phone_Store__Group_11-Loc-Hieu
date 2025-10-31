@@ -2,12 +2,11 @@
 .product-content {
   display: flex;
   gap: 2rem;
-  padding: 2rem 1rem;
   max-width: 1280px;
   margin: 0 auto;
 
   .product-left {
-    flex: 1 1 20%; // từ 25% → 20%
+    flex: 1 1 20%;
     img {
       width: 100%;
       border-radius: 12px;
@@ -94,14 +93,14 @@
       padding: 2rem;
       background-color: #e5e7eb;
       border-radius: 12px;
-      grid-template-columns: repeat(3, 1fr); // default cho 1024px → 1280px
+      grid-template-columns: repeat(3, 1fr);
 
       @media (min-width: 1280px) {
-        grid-template-columns: repeat(4, 1fr); // trên 1280px → grid 4
+        grid-template-columns: repeat(4, 1fr);
       }
 
       @media (max-width: 1024px) {
-        grid-template-columns: repeat(3, 1fr); // vẫn grid 3 từ 1024px trở xuống
+        grid-template-columns: repeat(3, 1fr);
       }
 
       @media (max-width: 768px) {
@@ -113,7 +112,7 @@
       }
 
       .product {
-        position: relative; // để con absolute nằm trong thẻ này
+        position: relative;
         padding: 1rem;
         border: 1px solid #ddd;
         border-radius: 12px;
@@ -121,6 +120,8 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+        transition: all 0.5s;
+        cursor: pointer;
 
         &:hover {
           transform: translateY(-5px) scale(1.02);
@@ -161,7 +162,7 @@
           font-size: 0.65rem;
           font-weight: 500;
           color: $light;
-          background-color: #ff4d4f; // đỏ
+          background-color: #ff4d4f;
           border-radius: 4px;
           white-space: nowrap;
         }
@@ -174,7 +175,7 @@
           font-size: 0.65rem;
           font-weight: 500;
           color: darkblue;
-          background-color: #dde6ff; // xanh nhạt
+          background-color: #dde6ff;
           border-radius: 4px;
           white-space: nowrap;
         }
