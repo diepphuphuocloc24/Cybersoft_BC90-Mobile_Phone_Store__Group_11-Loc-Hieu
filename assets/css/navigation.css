@@ -792,6 +792,19 @@ h2 {
   line-height: 60px;
 }
 
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.deal {
+  margin: 5rem 0;
+  cursor: pointer;
+}
+
 button {
   background-color: #ff416c;
   color: white;
@@ -934,7 +947,35 @@ button.secondary-outline:hover {
     transform: translateY(0);
   }
 }
-.animate__animated .animate__fadeIn {
+:root {
+  --animate-duration: 2s;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInDown {
+  animation-name: fadeInDown;
+  --animate-duration: 2s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInUp {
+  animation-name: fadeInUp;
   --animate-duration: 2s;
 }
 

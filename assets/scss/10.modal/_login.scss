@@ -1,0 +1,144 @@
+// LOGIN
+.popup-login {
+  width: 480px;
+  padding: $p-5;
+  border-radius: 12px;
+  background: $light;
+  position: relative;
+  animation: popupShow 0.35s ease forwards;
+  opacity: 0;
+  transform: scale(0.85);
+  box-shadow: $box-shadow-soft;
+
+  .close-btn {
+    position: absolute;
+    top: $p-2;
+    right: $p-2;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: $text-lg;
+    color: $gray-600;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: $m-4;
+    font-size: $text-xl;
+    font-weight: $font-semibold;
+    color: $primary-Darkblue;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: $m-3;
+
+    label {
+      font-size: $text-sm;
+      margin-bottom: $m-1;
+      color: $gray-600;
+    }
+
+    input {
+      padding: $p-3;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+      font-size: $text-base;
+      transition: 0.2s;
+
+      &:focus {
+        border-color: $primary-Aquamarine;
+      }
+    }
+  }
+
+  .forgot {
+    display: block;
+    text-align: right;
+    font-size: $text-xs;
+    margin-bottom: $m-4;
+    cursor: pointer;
+    color: $error;
+  }
+
+  .btn-login {
+    width: 100%;
+    padding: $p-3;
+    border-radius: 6px;
+    border: none;
+    background: $primary-Aquamarine;
+    color: $dark;
+    cursor: pointer;
+    margin-bottom: $m-4;
+    font-weight: $font-medium;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .or {
+    text-align: center;
+    margin-bottom: $m-4;
+    font-size: $text-sm;
+    color: $gray-600;
+  }
+
+  .social {
+    display: flex;
+    gap: $m-3;
+    margin-bottom: $m-5;
+
+    button {
+      flex: 1;
+      padding: $p-2;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: $m-1;
+      transition: 0.2s;
+      font-size: $text-sm;
+      background: $light;
+
+      &.google {
+        border-color: $error;
+        color: $error;
+
+        i {
+          color: $error;
+        }
+      }
+
+      &.facebook {
+        border-color: #1877f2;
+        color: #1877f2;
+
+        i {
+          color: #1877f2;
+        }
+      }
+    }
+  }
+
+  .register {
+    text-align: center;
+    font-size: $text-sm;
+    cursor: pointer;
+    color: $primary-RosePink;
+  }
+}
+
+@keyframes popupShow {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

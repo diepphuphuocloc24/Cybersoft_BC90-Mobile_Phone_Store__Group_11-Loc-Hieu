@@ -5,18 +5,27 @@ class Manager {
   }
 
   btn_Add_Cart(object_Product) {
-    this.array_Cart.push(object_Product);
-  }
+    let found = false;
 
-  Find_Index(id) {
-    let index = -1;
-    for (let i = 0; i < this.array_Cart.length; i++) {
-      if (this.array_Cart[i].id === id) {
-        index = i;
+    for (let i = 0; i < this.array_Cart.length; i += 1) {
+      const product = this.array_Cart[i];
+      if (product.id === object_Product.id) {
+        product.quantity += 1;
+        found = true;
         break;
       }
     }
-    return index;
+
+    if (!found) {
+      object_Product.quantity = 1;
+      this.array_Cart.push(object_Product);
+    }
+  }
+
+  Find_Index(id) {
+    return this.array_Cart.findIndex((product) => {
+      product.id === id;
+    });
   }
 
   btn_delete(id) {

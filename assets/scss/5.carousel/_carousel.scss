@@ -1,11 +1,6 @@
 // CAROUSEL
 .carousel {
-  padding: 9rem 0 3rem 0;
-
-  .carousel-content {
-    width: 70%;
-    margin: 0 auto;
-  }
+  padding-top: 6.5rem;
 
   .owl-carousel {
     .item {
@@ -17,8 +12,7 @@
       background-color: $light;
 
       img {
-        width: 100%;
-        height: 340px;
+        height: 450px;
         object-fit: cover;
         border-radius: 16px;
         display: block;
@@ -30,7 +24,7 @@
         box-shadow: $box-shadow-strong;
 
         img {
-          transform: scale(1.1);
+          transform: scale(1.05);
           filter: brightness(1.08);
         }
       }
@@ -43,6 +37,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    z-index: 1000;
 
     button {
       pointer-events: auto;

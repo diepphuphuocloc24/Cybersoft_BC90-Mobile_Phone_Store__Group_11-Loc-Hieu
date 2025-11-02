@@ -793,6 +793,19 @@ h2 {
   line-height: 60px;
 }
 
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: black;
+}
+
+.deal {
+  margin: 5rem 0;
+  cursor: pointer;
+}
+
 button {
   background-color: #ff416c;
   color: white;
@@ -935,7 +948,35 @@ button.secondary-outline:hover {
     transform: translateY(0);
   }
 }
-.animate__animated .animate__fadeIn {
+:root {
+  --animate-duration: 2s;
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInDown {
+  animation-name: fadeInDown;
+  --animate-duration: 2s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate__fadeInUp {
+  animation-name: fadeInUp;
   --animate-duration: 2s;
 }
 
@@ -1400,12 +1441,8 @@ button.secondary-outline:hover {
   }
 }
 .carousel {
-  padding: 9rem 0 3rem 0;
+  padding-top: 6.5rem;
   /* Animation nhẹ cho dot active */
-}
-.carousel .carousel-content {
-  width: 70%;
-  margin: 0 auto;
 }
 .carousel .owl-carousel .item {
   overflow: hidden;
@@ -1416,8 +1453,7 @@ button.secondary-outline:hover {
   background-color: white;
 }
 .carousel .owl-carousel .item img {
-  width: 100%;
-  height: 340px;
+  height: 450px;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 16px;
@@ -1429,7 +1465,7 @@ button.secondary-outline:hover {
   box-shadow: 0 6px 20px rgba(17, 24, 39, 0.15);
 }
 .carousel .owl-carousel .item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.05);
   filter: brightness(1.08);
 }
 .carousel .owl-nav {
@@ -1438,6 +1474,7 @@ button.secondary-outline:hover {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  z-index: 1000;
 }
 .carousel .owl-nav button {
   pointer-events: auto;
@@ -1559,7 +1596,6 @@ button.secondary-outline:hover {
 .product-content {
   display: flex;
   gap: 2rem;
-  padding: 2rem 1rem;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -1676,6 +1712,8 @@ button.secondary-outline:hover {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  transition: all 0.5s;
+  cursor: pointer;
 }
 .product-content .product-right .product-list .product:hover {
   transform: translateY(-5px) scale(1.02);
@@ -1782,7 +1820,6 @@ button.secondary-outline:hover {
   background-color: #e5e7eb;
   padding: 3rem 0 1.5rem 0;
   color: rgb(53.0172413793, 60.0862068966, 69.9827586207);
-  margin-top: 2rem;
 }
 .footer .footer-content {
   display: grid;
@@ -1790,9 +1827,7 @@ button.secondary-outline:hover {
   gap: 2.5rem;
   align-items: start;
   justify-content: space-between;
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 .footer .footer-content .footer-section h3,
 .footer .footer-content .footer-section h4 {
@@ -1846,6 +1881,7 @@ button.secondary-outline:hover {
   border-radius: 8px;
   text-align: center;
   position: fixed;
+  z-index: 10;
   right: 15px;
   bottom: 80px;
   font-size: 1.125rem;
@@ -1872,6 +1908,7 @@ button.secondary-outline:hover {
   border-radius: 8px;
   text-align: center;
   position: fixed;
+  z-index: 10;
   right: 60px;
   bottom: 15px;
   font-size: 1.125rem;
@@ -1893,6 +1930,7 @@ button.secondary-outline:hover {
   border-radius: 50%;
   text-align: center;
   position: fixed;
+  z-index: 10;
   right: 15px;
   bottom: 5px;
   font-size: 1.5rem;
@@ -2432,4 +2470,226 @@ button.secondary-outline:hover {
     justify-content: center;
     align-items: center;
   }
+}
+.popup-login {
+  width: 480px;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: white;
+  position: relative;
+  animation: popupShow 0.35s ease forwards;
+  opacity: 0;
+  transform: scale(0.85);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+}
+.popup-login .close-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1.125rem;
+  color: #4b5563;
+}
+.popup-login .close-btn:hover {
+  color: red;
+}
+.popup-login h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #00113d;
+}
+.popup-login .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+.popup-login .form-group label {
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+  color: #4b5563;
+}
+.popup-login .form-group input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.popup-login .form-group input:focus {
+  border-color: #4fd1c5;
+}
+.popup-login .forgot {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  color: #ef4444;
+}
+.popup-login .btn-login {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: none;
+  background: #4fd1c5;
+  color: black;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popup-login .or {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+}
+.popup-login .social {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+.popup-login .social button {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  transition: 0.2s;
+  font-size: 0.875rem;
+  background: white;
+}
+.popup-login .social button.google {
+  border-color: #ef4444;
+  color: #ef4444;
+}
+.popup-login .social button.google i {
+  color: #ef4444;
+}
+.popup-login .social button.facebook {
+  border-color: #1877f2;
+  color: #1877f2;
+}
+.popup-login .social button.facebook i {
+  color: #1877f2;
+}
+.popup-login .register {
+  text-align: center;
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: #ff416c;
+}
+
+@keyframes popupShow {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.newsfeed {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+.newsfeed__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .newsfeed__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .newsfeed__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.newsfeed__card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border: 1px solid rgb(179.8965517241, 187.4827586207, 198.1034482759);
+  border-radius: 12px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+  transition: transform 0.5s, box-shadow 0.5s;
+  padding: 1rem;
+}
+.newsfeed__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(17, 24, 39, 0.15);
+}
+.newsfeed__card .card__image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.newsfeed__card .card__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.5s;
+}
+.newsfeed__card .card__image img:hover {
+  transform: scale(1.05);
+}
+.newsfeed__card .card__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem;
+}
+.newsfeed__card .card__content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #00113d;
+  transition: all 0.5s;
+}
+.newsfeed__card .card__content h3:hover {
+  color: #2563eb;
+}
+.newsfeed__card .card__content p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+.newsfeed__more {
+  margin-top: 3rem;
+}
+.newsfeed__more .btn--more {
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2563eb;
+  background: white;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  transition: all 0.5s;
+  display: inline-block;
+}
+.newsfeed__more .btn--more:hover {
+  background: #2563eb;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
 }/*# sourceMappingURL=style.css.map */
