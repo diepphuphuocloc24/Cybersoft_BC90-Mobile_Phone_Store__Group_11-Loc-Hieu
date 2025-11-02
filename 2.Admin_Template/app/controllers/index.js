@@ -173,6 +173,7 @@ dom_Element_ID("btnSubmit").onclick = function (e) {
       "invalid-ID",
       "(*) ID này đã tồn tại, vui lòng nhập ID khác!"
     );
+
   isValid &= validation.checkEmpty(
     input_Name,
     "invalid-name",
@@ -282,13 +283,12 @@ dom_Element_ID("btnUpdate").onclick = function (e) {
   let isValid = true;
 
   // Kiểm tra validation
-  isValid &=
-    validation.checkEmpty(input_Id, "invalid-ID", "(*) Vui lòng nhập ID") &&
-    validation.checkIDLength(
-      input_Id,
-      "invalid-ID",
-      "(*) Vui lòng nhập ID tối thiểu 5 ký tự"
-    );
+  isValid &= validation.checkEmpty(
+    input_Id,
+    "invalid-ID",
+    "(*) Vui lòng nhập ID"
+  );
+
   isValid &= validation.checkEmpty(
     input_Name,
     "invalid-name",
