@@ -36,7 +36,7 @@ const render_UI = (array_Product) => {
     const object_Product = array_Product[i];
     contentTable += `
       <tr>
-        <td>${object_Product.id}</td>
+        <td>${object_Product.productID}</td>
         <td>${object_Product.name}</td>
         <td><img src="${object_Product.img}" alt="${object_Product.name}"/>
         </td>
@@ -103,7 +103,7 @@ const btn_Edit = (id) => {
     .then((result) => {
       const object_Product = result.data;
       console.log(object_Product);
-      dom_Element_ID("productId").value = object_Product.id;
+      dom_Element_ID("productId").value = object_Product.productID;
       dom_Element_ID("productId").disabled = true;
       dom_Element_ID("productName").value = object_Product.name;
       dom_Element_ID("productPrice").value = object_Product.price;
@@ -225,7 +225,7 @@ dom_Element_ID("btnUpdate").onclick = function (e) {
       document.getElementsByClassName("close-btn")[0].click();
       // Báo lại cho người dùng là thêm
       alert(
-        `Sản phẩm ID là ${object_Product.id} - ${object_Product.name} đã được cập nhật thành công`
+        `Sản phẩm ID là ${object_Product.productID} - ${object_Product.name} đã được cập nhật thành công`
       );
     })
     .catch((error) => {
