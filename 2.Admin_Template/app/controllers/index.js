@@ -282,13 +282,21 @@ dom_Element_ID("btnUpdate").onclick = function (e) {
   let isValid = true;
 
   // Kiểm tra validation
-  isValid &=
-    validation.checkEmpty(input_Id, "invalid-ID", "(*) Vui lòng nhập ID") &&
-    validation.checkIDLength(
+  isValid &= validation.checkEmpty(
+    input_Id,
+    "invalid-ID",
+    "(*) Vui lòng nhập ID"
+  );
+
+  isValid =
+    isValid &&
+    validation.checkDuplicateID(
       input_Id,
+      manager.array_Cart,
       "invalid-ID",
-      "(*) Vui lòng nhập ID tối thiểu 5 ký tự"
+      "(*) ID này đã tồn tại, vui lòng nhập ID khác!"
     );
+
   isValid &= validation.checkEmpty(
     input_Name,
     "invalid-name",

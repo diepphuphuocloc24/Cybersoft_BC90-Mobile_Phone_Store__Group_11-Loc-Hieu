@@ -8,9 +8,6 @@ class Manager {
     return this.array_Cart;
   }
 
-  btn_minus() {}
-  btn_delete() {}
-
   filterProduct(type) {
     let productFilter = [];
 
