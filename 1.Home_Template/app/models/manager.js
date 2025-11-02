@@ -24,7 +24,7 @@ class Manager {
 
   Find_Index(id) {
     return this.array_Cart.findIndex((product) => {
-      product.id === id;
+      return product.id === id;
     });
   }
 
