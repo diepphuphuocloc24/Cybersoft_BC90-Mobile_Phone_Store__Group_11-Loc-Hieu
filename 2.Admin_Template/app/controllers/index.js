@@ -94,7 +94,7 @@ const btn_Edit = (id) => {
 
   //Xóa các thông báo lỗi cũ (nếu có)
   const invalids = document.querySelectorAll("[id^='invalid-']");
-  invalids.forEach((el) => el.innerHTML = "");
+  invalids.forEach((el) => (el.innerHTML = ""));
 
   document.getElementsByClassName("btn-submit")[0].style.display = "none";
 
@@ -157,20 +157,75 @@ dom_Element_ID("btnSubmit").onclick = function (e) {
 
   // Boolean
   let isValid = true;
-  
-  // Kiểm tra validation
-  isValid &= validation.checkEmpty(input_Id, "invalid-ID", "(*) Vui lòng nhập ID") && validation.checkIDLength(input_Id, "invalid-ID", "(*) Vui lòng nhập ID tối thiểu 5 ký tự")
-  isValid &= validation.checkEmpty(input_Name, "invalid-name", "(*) Vui lòng nhập tên sản phẩm")
-  isValid &= validation.checkEmpty(input_Price, "invalid-price", "(*) Vui lòng nhập giá sản phẩm")
-  isValid &= validation.checkOption("productType", "invalid-type", "(*) Vui lòng chọn loại sản phẩm")
-  isValid &= validation.checkEmpty(input_Screen, "invalid-screen", "(*) Vui lòng nhập thông số màn hình")
-  isValid &= validation.checkEmpty(input_Back_Camera, "invalid-back_Camera", "(*) Vui lòng nhập thông số camera sau")
-  isValid &= validation.checkEmpty(input_Front_Camera, "invalid-front_Camera", "(*) Vui lòng nhập thông số camera trước")
-  isValid &= validation.checkEmpty(input_Img, "invalid-img", "(*) Vui lòng nhập URl sản phẩm") && validation.checkURL(input_Img, "invalid-img", "(*) Vui lòng nhập đúng cú pháp")
-  isValid &= validation.checkOption("productStock", "invalid-stock", "(*) Vui lòng cập nhật tình trạng sản phẩm")
-  isValid &= validation.checkEmpty(input_Desc, "invalid-desc", "(*) Vui lòng mô tả sản phẩm")
 
-  if(!isValid) return false;
+  // Kiểm tra validation
+  isValid &= validation.checkEmpty(
+    input_Id,
+    "invalid-ID",
+    "(*) Vui lòng nhập ID"
+  );
+
+  isValid =
+    isValid &&
+    validation.checkDuplicateID(
+      input_Id,
+      manager.array_Cart,
+      "invalid-ID",
+      "(*) ID này đã tồn tại, vui lòng nhập ID khác!"
+    );
+  isValid &= validation.checkEmpty(
+    input_Name,
+    "invalid-name",
+    "(*) Vui lòng nhập tên sản phẩm"
+  );
+  isValid &= validation.checkEmpty(
+    input_Price,
+    "invalid-price",
+    "(*) Vui lòng nhập giá sản phẩm"
+  );
+  isValid &= validation.checkOption(
+    "productType",
+    "invalid-type",
+    "(*) Vui lòng chọn loại sản phẩm"
+  );
+  isValid &= validation.checkEmpty(
+    input_Screen,
+    "invalid-screen",
+    "(*) Vui lòng nhập thông số màn hình"
+  );
+  isValid &= validation.checkEmpty(
+    input_Back_Camera,
+    "invalid-back_Camera",
+    "(*) Vui lòng nhập thông số camera sau"
+  );
+  isValid &= validation.checkEmpty(
+    input_Front_Camera,
+    "invalid-front_Camera",
+    "(*) Vui lòng nhập thông số camera trước"
+  );
+  isValid &=
+    validation.checkEmpty(
+      input_Img,
+      "invalid-img",
+      "(*) Vui lòng nhập URl sản phẩm"
+    ) &&
+    validation.checkURL(
+      input_Img,
+      "invalid-img",
+      "(*) Vui lòng nhập đúng cú pháp"
+    );
+  isValid &= validation.checkOption(
+    "productStock",
+    "invalid-stock",
+    "(*) Vui lòng cập nhật tình trạng sản phẩm"
+  );
+  isValid &= validation.checkEmpty(
+    input_Desc,
+    "invalid-desc",
+    "(*) Vui lòng mô tả sản phẩm"
+  );
+
+  if (!isValid) return false;
 
   const product = new Product(
     input_Id,
@@ -223,22 +278,70 @@ dom_Element_ID("btnUpdate").onclick = function (e) {
   const input_Stock = dom_Element_ID("productStock").value;
   const input_Desc = dom_Element_ID("productDesc").value;
 
-    // Boolean
+  // Boolean
   let isValid = true;
-  
-  // Kiểm tra validation
-  isValid &= validation.checkEmpty(input_Id, "invalid-ID", "(*) Vui lòng nhập ID") && validation.checkIDLength(input_Id, "invalid-ID", "(*) Vui lòng nhập ID tối thiểu 5 ký tự")
-  isValid &= validation.checkEmpty(input_Name, "invalid-name", "(*) Vui lòng nhập tên sản phẩm")
-  isValid &= validation.checkEmpty(input_Price, "invalid-price", "(*) Vui lòng nhập giá sản phẩm")
-  isValid &= validation.checkOption("productType", "invalid-type", "(*) Vui lòng chọn loại sản phẩm")
-  isValid &= validation.checkEmpty(input_Screen, "invalid-screen", "(*) Vui lòng nhập thông số màn hình")
-  isValid &= validation.checkEmpty(input_Back_Camera, "invalid-back_Camera", "(*) Vui lòng nhập thông số camera sau")
-  isValid &= validation.checkEmpty(input_Front_Camera, "invalid-front_Camera", "(*) Vui lòng nhập thông số camera trước")
-  isValid &= validation.checkEmpty(input_Img, "invalid-img", "(*) Vui lòng nhập URl sản phẩm") && validation.checkURL(input_Img, "invalid-img", "(*) Vui lòng nhập đúng cú pháp")
-  isValid &= validation.checkOption("productStock", "invalid-stock", "(*) Vui lòng cập nhật tình trạng sản phẩm")
-  isValid &= validation.checkEmpty(input_Desc, "invalid-desc", "(*) Vui lòng mô tả sản phẩm")
 
-  if(!isValid) return false;
+  // Kiểm tra validation
+  isValid &=
+    validation.checkEmpty(input_Id, "invalid-ID", "(*) Vui lòng nhập ID") &&
+    validation.checkIDLength(
+      input_Id,
+      "invalid-ID",
+      "(*) Vui lòng nhập ID tối thiểu 5 ký tự"
+    );
+  isValid &= validation.checkEmpty(
+    input_Name,
+    "invalid-name",
+    "(*) Vui lòng nhập tên sản phẩm"
+  );
+  isValid &= validation.checkEmpty(
+    input_Price,
+    "invalid-price",
+    "(*) Vui lòng nhập giá sản phẩm"
+  );
+  isValid &= validation.checkOption(
+    "productType",
+    "invalid-type",
+    "(*) Vui lòng chọn loại sản phẩm"
+  );
+  isValid &= validation.checkEmpty(
+    input_Screen,
+    "invalid-screen",
+    "(*) Vui lòng nhập thông số màn hình"
+  );
+  isValid &= validation.checkEmpty(
+    input_Back_Camera,
+    "invalid-back_Camera",
+    "(*) Vui lòng nhập thông số camera sau"
+  );
+  isValid &= validation.checkEmpty(
+    input_Front_Camera,
+    "invalid-front_Camera",
+    "(*) Vui lòng nhập thông số camera trước"
+  );
+  isValid &=
+    validation.checkEmpty(
+      input_Img,
+      "invalid-img",
+      "(*) Vui lòng nhập URl sản phẩm"
+    ) &&
+    validation.checkURL(
+      input_Img,
+      "invalid-img",
+      "(*) Vui lòng nhập đúng cú pháp"
+    );
+  isValid &= validation.checkOption(
+    "productStock",
+    "invalid-stock",
+    "(*) Vui lòng cập nhật tình trạng sản phẩm"
+  );
+  isValid &= validation.checkEmpty(
+    input_Desc,
+    "invalid-desc",
+    "(*) Vui lòng mô tả sản phẩm"
+  );
+
+  if (!isValid) return false;
 
   const product = new Product(
     input_Id,
@@ -273,28 +376,27 @@ dom_Element_ID("btnUpdate").onclick = function (e) {
     });
 };
 
-
 /**
  * Filter Type
  */
 dom_Element_ID("filter").addEventListener("change", () => {
-    const type = dom_Element_ID("filter").value;
+  const type = dom_Element_ID("filter").value;
 
-    const productFilter = manager.filterProduct(type);
+  const productFilter = manager.filterProduct(type);
 
-    render_UI(productFilter);
-})
+  render_UI(productFilter);
+});
 
 /**
  * Search Product
  */
 dom_Element_ID("searchInput").addEventListener("keyup", () => {
-    const keyword = dom_Element_ID("searchInput").value;
+  const keyword = dom_Element_ID("searchInput").value;
 
-    const searchName = manager.searchName(keyword);
+  const searchName = manager.searchName(keyword);
 
-    render_UI(searchName);
-})
+  render_UI(searchName);
+});
 
 /**
  * Filter Price
@@ -324,9 +426,9 @@ function handleFilterAndSort() {
     // Sao chép mảng để không ảnh hưởng mảng gốc
     filteredProducts = [...filteredProducts].sort((a, b) => {
       if (selectedOrder === "asc") {
-        return Number(a.price) - Number(b.price); 
+        return Number(a.price) - Number(b.price);
       } else {
-        return Number(b.price) - Number(a.price); 
+        return Number(b.price) - Number(a.price);
       }
     });
   }
@@ -337,4 +439,3 @@ function handleFilterAndSort() {
  */
 dom_Element_ID("filter").addEventListener("change", handleFilterAndSort);
 dom_Element_ID("sortPrice").addEventListener("change", handleFilterAndSort);
-
