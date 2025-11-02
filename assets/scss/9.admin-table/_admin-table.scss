@@ -340,6 +340,23 @@
               box-shadow: 0 0 6px rgba($primary-Aquamarine, 0.3);
             }
           }
+
+          select#sortPrice {
+            padding: 0.5rem 1rem;
+            border-radius: 12px;
+            border: 1px solid #ddd;
+            font-size: $text-base;
+            outline: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            background-color: $light;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+
+            &:focus {
+              border-color: $primary-Aquamarine;
+              box-shadow: 0 0 6px rgba($primary-Aquamarine, 0.3);
+            }
+          }
         }
 
         @media (max-width: 768px) {
