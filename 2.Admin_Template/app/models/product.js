@@ -1,7 +1,6 @@
 class Product {
   constructor(
     id,
-    productID,
     name,
     price,
     screen,
@@ -13,7 +12,6 @@ class Product {
     stock
   ) {
     this.id = id;
-    this.productID = productID;
     this.name = name;
     this.price = price;
     this.screen = screen;
