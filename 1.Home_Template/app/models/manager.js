@@ -36,22 +36,6 @@ class Manager {
     return this.array_Cart;
   }
 
-  btn_Plus(id) {
-    const index = this.Find_Index(id);
-    if (index !== -1) {
-      this.array_Cart[index].quantity += 1;
-    }
-    return this.array_Cart;
-  }
-
-  btn_Minus(id) {
-    const index = this.Find_Index(id);
-    if (index !== -1) {
-      this.array_Cart[index].quantity -= 1;
-    }
-    return this.array_Cart;
-  }
-
   filter(type) {
     const filter_Cart = [];
     if (type === "all") {

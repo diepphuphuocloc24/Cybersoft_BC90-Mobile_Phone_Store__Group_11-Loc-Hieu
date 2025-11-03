@@ -135,17 +135,15 @@ const render_Cart = () => {
                           <h4 class="item-price">${product.price.toLocaleString(
                             "vi-VN"
                           )} ₫</h4>
-                          <div class="quantity-control">
-                            <button class="qty-btn minus" onclick="handle_Minus('${
-                              product.id
-                            }')">−</button>
-                              <span class="qty-number">${
-                                product.quantity
-                              }</span>
-                            <button class="qty-btn plus" onclick="handle_Add('${
-                              product.id
-                            }')">+</button>
-                          </div>
+                        <div class="quantity-control">
+                          <button class="qty-btn minus" onclick="handle_Change_Quantity('${
+                            product.id
+                          }', false)">−</button>
+                          <span class="qty-number">${product.quantity}</span>
+                          <button class="qty-btn plus" onclick="handle_Change_Quantity('${
+                            product.id
+                          }', true)">+</button>
+                        </div>
                       </div>
                   </div>
                 <button class="remove-btn" onclick="handle_Delete('${
@@ -163,9 +161,15 @@ const render_Cart = () => {
   dom_Element_ID("total-price").innerHTML =
     calculate_Total(array_Cart).toLocaleString("vi-VN") + " ₫";
 
-  const cartCount = dom_Element_ID("cart-count");
-  cartCount.innerText = array_Cart.length;
+  const totalCartQuantity = () => {
+    return array_Cart.reduce((totalQuantity, phone) => {
+      return totalQuantity + phone.quantity;
+    }, 0);
+  };
 
+  dom_Element_ID("cart-count").innerHTML = dom_Element_ID(
+    "cart-count"
+  ).innerText = totalCartQuantity();
   if (array_Cart.length > 0) {
     dom_Element_ID("cart-count").style.display = "block";
   } else {
@@ -199,25 +203,32 @@ const handle_Delete = (id) => {
 };
 window.handle_Delete = handle_Delete;
 
-// Tăng số lượng sản phẩm
-const handle_Add = (id) => {
-  manager.btn_Plus(id);
+// Khi bấm nút thay đổi số lượng sản phẩm
+const handle_Change_Quantity = (id, status) => {
+  const index = manager.Find_Index(id);
 
-  render_Cart();
+  if (index !== -1) {
+    const object_Product = manager.array_Cart[index];
 
-  set_Local_Storage();
+    if (status) {
+      object_Product.quantity += 1;
+    } else {
+      object_Product.quantity -= 1;
+
+      if (object_Product.quantity <= 0) {
+        manager.array_Cart = manager.array_Cart.filter(
+          (object_Product) => object_Product.id !== id
+        );
+      }
+    }
+
+    render_Cart();
+
+    set_Local_Storage();
+  }
 };
-window.handle_Add = handle_Add;
 
-// Giảm số lượng sản phẩm
-const handle_Minus = (id) => {
-  manager.btn_Minus(id);
-
-  render_Cart();
-
-  set_Local_Storage();
-};
-window.handle_Minus = handle_Minus;
+window.handle_Change_Quantity = handle_Change_Quantity;
 
 // Bấm vào nút Xóa tất cả
 document.getElementsByClassName("btn-clear")[0].onclick = () => {
