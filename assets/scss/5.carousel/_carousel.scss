@@ -1,64 +1,61 @@
-// CAROUSEL
 .carousel {
-  padding-top: 6.5rem;
+  position: relative;
+  padding-top: 6rem;
 
   .owl-carousel {
+    position: relative;
+
     .item {
       overflow: hidden;
-      border-radius: 16px;
       box-shadow: $box-shadow-soft;
       transition: transform 0.5s, box-shadow 0.5s;
       cursor: pointer;
       background-color: $light;
 
       img {
-        height: 450px;
+        width: 100%;
+        height: 510px;
         object-fit: cover;
-        border-radius: 16px;
         display: block;
         transition: transform 0.5s, filter 0.5s;
-      }
-
-      &:hover {
-        transform: translateY(-6px);
-        box-shadow: $box-shadow-strong;
-
-        img {
-          transform: scale(1.05);
-          filter: brightness(1.08);
-        }
       }
     }
   }
 
   .owl-nav {
     position: absolute;
-    top: 40%;
+    top: 50%;
+    left: 0;
     width: 100%;
+    transform: translateY(-50%);
     display: flex;
     justify-content: space-between;
-    z-index: 1000;
+    align-items: center;
+    z-index: 10;
+    pointer-events: none;
 
     button {
       pointer-events: auto;
-      background-color: #e5e7eb !important;
+      background-color: $light !important;
+      opacity: 0.4;
       color: $dark;
       border-radius: 50%;
       width: 46px;
       height: 46px;
       border: none;
-      font-size: 1.3rem;
+      font-size: $text-3xl !important;
       box-shadow: 0 6px 15px rgba($dark, 0.15);
       cursor: pointer;
-      transition: all 0.25s;
+      transition: all 0.5s;
       display: flex;
       justify-content: center;
       align-items: center;
 
       &:hover {
-        background: $primary-Aquamarine !important;
+        background: $gray-600 !important;
         color: $light;
-        transform: scale(1.1) rotate(5deg);
+        opacity: 0.8;
+        transform: scale(1.1);
         box-shadow: 0 8px 18px rgba($dark, 0.25);
       }
 
@@ -70,107 +67,80 @@
     }
 
     .owl-prev {
-      position: absolute;
-      left: -60px;
+      margin-left: 2rem;
     }
 
     .owl-next {
-      position: absolute;
-      right: -60px;
+      margin-right: 2rem;
     }
   }
 
   .owl-dots {
-    margin-top: 1.5rem;
-    text-align: center;
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
     display: flex;
     justify-content: center;
     gap: 10px;
 
     .owl-dot {
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       background-color: $gray-600;
       border-radius: 50%;
       border: 2px solid transparent;
-      transition: all 0.3s;
-      box-shadow: 0 0 0 rgba($primary, 0);
+      transition: all 0.5s;
       cursor: pointer;
-      position: relative;
 
-      /* Hiệu ứng hover */
       &:hover {
         background-color: $primary-RosePink;
         transform: scale(1.2);
-        box-shadow: 0 0 6px rgba($secondary, 0.5);
       }
 
-      /* Khi dot đang active */
       &.active {
         background-color: $primary-RosePink;
         border-color: lighten($primary, 30%);
         transform: scale(1.35);
         box-shadow: 0 0 10px rgba($primary, 0.6);
-        transition: all 0.35s;
-
-        /* Hiệu ứng lan tỏa nhẹ */
-        &::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          width: 20px;
-          height: 20px;
-          border-radius: 50%;
-          background: rgba($primary, 0.25);
-          transform: translate(-50%, -50%) scale(1);
-          animation: dotPulse 1.2s-out infinite;
-        }
       }
     }
   }
 
-  /* Animation nhẹ cho dot active */
-  @keyframes dotPulse {
-    0% {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 0.6;
-    }
-    70% {
-      transform: translate(-50%, -50%) scale(1.8);
-      opacity: 0;
-    }
-    100% {
-      opacity: 0;
+  @media (max-width: 1280px) {
+    .owl-carousel .item img {
+      height: 450px;
     }
   }
 
-  // === Responsive ===
-  @media (max-width: 992px) {
+  @media (max-width: 1024px) {
     .owl-carousel .item img {
-      height: 260px;
+      height: 400px;
+    }
+
+    .owl-dots {
+      .owl-dot {
+        width: 8px;
+        height: 8px;
+        border: 1px solid transparent;
+      }
     }
   }
 
   @media (max-width: 768px) {
     .owl-carousel .item img {
-      height: 220px;
+      height: 400px;
     }
 
-    .owl-nav button {
-      width: 36px;
-      height: 36px;
-      font-size: 1.2rem;
+    .owl-nav {
+      display: none;
     }
   }
 
   @media (max-width: 480px) {
     .owl-carousel .item img {
-      height: 180px;
-    }
-
-    .owl-nav button {
-      display: none;
+      height: 350px;
     }
   }
 }

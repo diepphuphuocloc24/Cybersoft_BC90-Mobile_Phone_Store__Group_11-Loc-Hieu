@@ -54,6 +54,31 @@ const render_UI = (array_Product) => {
   dom_Element_ID("product-list").innerHTML = contentHTML;
 };
 
+// Hiệu ứng thêm vào giỏ hàng
+const show_Cart_Popup = () => {
+  const popup = document.getElementById("cart-popup");
+  if (popup._hideTimeout) {
+    clearTimeout(popup._hideTimeout);
+    popup._hideTimeout = null;
+  }
+
+  const prevTransition = popup.style.transition;
+  popup.style.transition = "none";
+
+  popup.classList.remove("opacity-0", "pointer-events-none", "scale-0");
+  popup.classList.add("opacity-100", "scale-100");
+
+  void popup.offsetWidth;
+
+  popup.style.transition = prevTransition || "";
+
+  popup._hideTimeout = setTimeout(() => {
+    popup.classList.remove("scale-100", "opacity-100");
+    popup.classList.add("scale-0", "opacity-0", "pointer-events-none");
+    popup._hideTimeout = null;
+  }, 150);
+};
+
 // Khi bấm Thêm vào giỏ
 function btn_Add_Cart(id) {
   const get_Product_Promise = api.get_Product_By_ID(id);
@@ -63,8 +88,9 @@ function btn_Add_Cart(id) {
 
       manager.btn_Add_Cart(object_Product);
       render_Cart(object_Product);
-
       set_Local_Storage();
+
+      show_Cart_Popup();
     })
     .catch((error) => {
       console.log(error.data);
@@ -136,6 +162,15 @@ const render_Cart = () => {
 
   dom_Element_ID("total-price").innerHTML =
     calculate_Total(array_Cart).toLocaleString("vi-VN") + " ₫";
+
+  const cartCount = dom_Element_ID("cart-count");
+  cartCount.innerText = array_Cart.length;
+
+  if (array_Cart.length > 0) {
+    dom_Element_ID("cart-count").style.display = "block";
+  } else {
+    dom_Element_ID("cart-count").style.display = "none";
+  }
 };
 
 // Lưu localStorage
@@ -204,8 +239,11 @@ document.getElementsByClassName("btn-checkout")[0].onclick = () => {
   document.getElementsByClassName("close-btn")[0].click();
 
   render_Cart();
-
   set_Local_Storage();
+
+  document.querySelector(".discount-group input").value = "";
+
+  document.getElementById("agree-terms").checked = false;
 };
 
 // Filter sản phẩm

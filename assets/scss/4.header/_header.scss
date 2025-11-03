@@ -98,6 +98,7 @@
         display: flex;
         align-items: center;
         gap: 20px;
+        position: relative;
 
         .cart,
         .login {
@@ -126,6 +127,7 @@
 
         .cart {
           background-color: #fbbf24;
+          position: relative;
 
           &:hover {
             background-color: darken(#fbbf24, 8%);
@@ -143,6 +145,25 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
           }
+        }
+
+        .cart-count {
+          text-align: center;
+          position: absolute;
+          z-index: 1000;
+          top: -1px;
+          right: 157px;
+          background-color: red;
+          color: $light;
+          font-size: $text-sm;
+          font-weight: bold;
+          border-radius: 50%;
+          width: 21px;
+          height: 21px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
         }
       }
     }
@@ -293,12 +314,32 @@
 
         .cart {
           background-color: #fbbf24;
+          position: relative;
 
           &:hover {
             background-color: darken(#fbbf24, 8%);
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
           }
+        }
+
+        .cart-count {
+          text-align: center;
+          position: absolute;
+          z-index: 1000;
+          top: 0px;
+          right: 10px;
+          background-color: red;
+          color: $light;
+          font-size: $text-xs;
+          font-weight: bold;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .login {
@@ -478,6 +519,25 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
           }
+        }
+
+        .cart-count {
+          text-align: center;
+          position: absolute;
+          z-index: 1000;
+          top: 0px;
+          right: 10px;
+          background-color: red;
+          color: $light;
+          font-size: $text-xs;
+          font-weight: bold;
+          border-radius: 50%;
+          width: 18px;
+          height: 18px;
+          font-size: 12px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
 
         .login {

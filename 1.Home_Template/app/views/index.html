@@ -70,18 +70,29 @@
             </div>
 
             <div class="btn_Right">
-                <button data-modal-target="cart-modal" data-modal-toggle="cart-modal" class="cart">
-                    Giỏ hàng <i class="fa-solid fa-cart-shopping"></i>
+                <div class="cart-wrapper">
+                    <button data-modal-target="cart-modal" data-modal-toggle="cart-modal" class="cart">
+                        Giỏ hàng <i class="fa-solid fa-cart-shopping"></i>
+                    </button>
+                    <span id="cart-count" class="cart-count">0</span>
+                </div>
+                <button data-modal-target="login-modal" data-modal-toggle="login-modal" class="login">
+                    Đăng nhập <i class="fi fi-rr-user"></i>
                 </button>
-                <button data-modal-target="login-modal" data-modal-toggle="login-modal" class="login">Đăng nhập <i
-                        class="fi fi-rr-user"></i></button>
             </div>
         </div>
     </header>
 
+    <!-- EFFECT ADD TO CART -->
+    <section>
+        <div id="cart-popup"
+            class="w-[150px] h-[200px] bg-gray-300 fixed top-13 right-85 z-100 transition-all duration-500 opacity-0 scale-0 origin-top-right pointer-events-none">
+        </div>
+    </section>
+
     <!-- CAROUSEL -->
     <section class="carousel">
-        <div class="carousel-content container">
+        <div class="carousel-content">
             <div class="owl-carousel">
                 <div class="item"><img src="./../../../../assets/img/tenor.gif" alt="slide 0"></div>
                 <div class="item"><img src="./../../../../assets/img/carousel/slide1.webp" alt="slide 1"></div>
@@ -178,10 +189,24 @@
                         <strong id="total-price">0 ₫</strong>
                     </div>
 
+                    <div class="agreement">
+                        <input type="checkbox" id="agree-terms">
+                        <label for="agree-terms">
+                            Tôi đã đọc và đồng ý với
+                            <span>điều khoản và điều kiện</span>
+                            của website
+                        </label>
+                    </div>
+
                     <div class="modal-actions">
                         <button class="btn-checkout">Thanh Toán</button>
                         <button class="btn-clear">Xóa Tất Cả</button>
                     </div>
+
+                    <p class="payment-note">
+                        Bạn có thể lựa chọn các hình thức thanh toán ở bước sau
+                    </p>
+
                 </div>
             </div>
         </div>
