@@ -182,6 +182,51 @@
           margin-bottom: 0.5rem;
         }
 
+        .color-options {
+          display: flex;
+          gap: 8px; // khoảng cách giữa các vòng tròn
+          margin-top: 8px;
+
+          .color-circle {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s ease-in-out;
+
+            &.black {
+              background-color: $dark;
+            }
+
+            &.gray {
+              background-color: #bdbdbf;
+            }
+
+            &.white {
+              background-color: #efece2;
+              border: 1px solid #ccc;
+            }
+
+            &.hazeBLue {
+              background-color: #b8dbd8;
+            }
+
+            &.rose {
+              background-color: #ff9c9c;
+            }
+
+            &:hover {
+              transform: scale(1.15);
+            }
+
+            &.active {
+              border-color: #3b82f6;
+              box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+            }
+          }
+        }
+
         .description,
         .description2 {
           display: inline-block;

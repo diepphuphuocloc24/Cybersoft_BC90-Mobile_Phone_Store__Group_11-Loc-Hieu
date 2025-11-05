@@ -40,6 +40,15 @@ const render_UI = (array_Product) => {
             </p>
             <p class="price"><span class="text-black font-light text-sm">Giá chỉ từ:</span> 
             ${Number(object_Product.price).toLocaleString("vi-VN")}đ</p>
+
+            <div class="color-options">
+              <span class="color-circle black"></span>
+              <span class="color-circle gray"></span>
+              <span class="color-circle white"></span>
+              <span class="color-circle rose"></span>
+              <span class="color-circle hazeBLue"></span>
+            </div>
+
             <p class="description">Với màn hình ${
               object_Product.screen
             }.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${
@@ -70,7 +79,21 @@ const render_UI = (array_Product) => {
       `;
   }
   dom_Element_ID("product-list").innerHTML = contentHTML;
+
+  init_Color_Picker();
 };
+
+function init_Color_Picker() {
+  document.querySelectorAll(".color-options").forEach((group) => {
+    const circles = group.querySelectorAll(".color-circle");
+    circles.forEach((circle) => {
+      circle.addEventListener("click", () => {
+        circles.forEach((c) => c.classList.remove("active"));
+        circle.classList.add("active");
+      });
+    });
+  });
+}
 
 // Khi render phần Best Seller
 function initBestSellerCarousel() {

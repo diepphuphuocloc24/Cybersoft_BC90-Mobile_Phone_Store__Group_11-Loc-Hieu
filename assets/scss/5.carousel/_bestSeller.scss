@@ -107,7 +107,7 @@
 
       button {
         pointer-events: auto;
-        background-color: $light;
+        background-color: #efece2;
         opacity: 0.5;
         color: $dark;
         border-radius: 50%;
@@ -124,6 +124,7 @@
         &:hover {
           opacity: 0.8;
           transform: scale(1.1);
+          background-color: $gray-600;
         }
       }
 

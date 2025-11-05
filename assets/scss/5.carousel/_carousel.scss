@@ -1,6 +1,31 @@
 .carousel {
   position: relative;
-  padding-top: 6rem;
+  padding-top: 3rem;
+
+  h1 {
+    color: $dark;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+
+    // Responsive
+    @media (max-width: 1024px) {
+      font-size: 45px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 40px;
+    }
+
+    @media (max-width: 640px) {
+      font-size: 32px;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 26px;
+    }
+  }
 
   .owl-carousel {
     position: relative;
@@ -67,11 +92,11 @@
     }
 
     .owl-prev {
-      margin-left: 2rem;
+      margin-left: 0.5rem;
     }
 
     .owl-next {
-      margin-right: 2rem;
+      margin-right: 0.5rem;
     }
   }
 
@@ -83,7 +108,7 @@
     z-index: 5;
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 
     .owl-dot {
       width: 10px;
@@ -100,6 +125,8 @@
       }
 
       &.active {
+        width: 16px;
+        border-radius: 10px;
         background-color: $primary-RosePink;
         border-color: lighten($primary, 30%);
         transform: scale(1.35);
