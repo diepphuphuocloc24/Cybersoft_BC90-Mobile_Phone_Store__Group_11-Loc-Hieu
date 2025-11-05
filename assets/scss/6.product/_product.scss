@@ -89,8 +89,8 @@
 
     .product-list {
       display: grid;
-      gap: 1.5rem;
-      padding: 2rem;
+      gap: 0.5rem;
+      padding: 1rem;
       background-color: #e5e7eb;
       border-radius: 12px;
       grid-template-columns: repeat(3, 1fr);
@@ -122,11 +122,6 @@
         gap: 0.5rem;
         transition: all 0.5s;
         cursor: pointer;
-
-        &:hover {
-          transform: translateY(-5px) scale(1.02);
-          box-shadow: $box-shadow-strong;
-        }
 
         img {
           width: 100%;
@@ -203,7 +198,6 @@
 
         .description2 {
           background-color: #c8c4ff;
-          font-size: $text-sm;
           color: darkblue;
         }
       }

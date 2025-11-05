@@ -13,6 +13,8 @@ const get_Array_Product = () => {
   get_Promise
     .then((result) => {
       render_UI(result.data);
+
+      render_Best_Seller(result.data);
     })
     .catch((error) => {
       console.log(error.data);
@@ -36,22 +38,95 @@ const render_UI = (array_Product) => {
             }">
             ${object_Product.stock === "new" ? "Hàng mới về" : "Hàng tồn kho"}
             </p>
-            <p class="price">${Number(object_Product.price).toLocaleString(
-              "vi-VN"
-            )} ₫</p>
+            <p class="price"><span class="text-black font-light text-sm">Giá chỉ từ:</span> 
+            ${Number(object_Product.price).toLocaleString("vi-VN")}đ</p>
             <p class="description">Với màn hình ${
               object_Product.screen
             }.<br>Cụm camera sau ${object_Product.backCamera} và camera trước ${
       object_Product.frontCamera
     }</p>
             <p class="description2">${object_Product.desc}</p>
-  <button class="btn-add" onclick="btn_Add_Cart('${
-    object_Product.id
-  }')">Thêm vào giỏ</button>
+
+          <div class="flex flex-col gap-2 w-full">
+            <button 
+              class="!bg-red-500 !text-white !font-bold !py-2.5 !shadow-md hover:!bg-red-600 !transition-all !duration-300">
+              MUA NGAY
+            </button>
+
+            <div class="flex w-full gap-2">
+              <button 
+                class="flex-4 !border !border-blue-500 !text-blue-600 !bg-white !font-semibold !py-2.5 !shadow-sm hover:!bg-cyan-200 !transition-all !duration-300">
+                Trả góp 0%
+              </button>
+
+              <button 
+                class="flex-1 !border !border-red-500 !text-red-500 !bg-white !font-semibold !py-2.5 !shadow-sm hover:!bg-red-200 !transition-all !duration-300"
+                onclick="btn_Add_Cart('${object_Product.id}')">
+                <i class="fa-solid fa-cart-plus text-base"></i>
+              </button>
+            </div>
+          </div>
         </div>
       `;
   }
   dom_Element_ID("product-list").innerHTML = contentHTML;
+};
+
+// Khi render phần Best Seller
+function initBestSellerCarousel() {
+  const $carousel = $(".best-seller");
+
+  // Nếu đã khởi tạo rồi, hủy trước khi khởi tạo lại
+  if ($carousel.hasClass("owl-loaded")) {
+    $carousel.trigger("destroy.owl.carousel");
+    $carousel
+      .html($carousel.find(".owl-stage-outer").html())
+      .removeClass("owl-loaded");
+  }
+
+  // Khởi tạo lại carousel
+  $carousel.owlCarousel({
+    loop: true,
+    margin: 10,
+    nav: true,
+    dots: true,
+    responsive: {
+      0: { items: 1 },
+      576: { items: 2 },
+      768: { items: 3 },
+      1024: { items: 4 },
+    },
+  });
+}
+
+// Phần Best Seller
+const render_Best_Seller = (array_Product) => {
+  const newProducts = array_Product.filter((item) => item.stock === "new");
+
+  let contentHTML = "";
+  for (let i = 0; i < newProducts.length; i++) {
+    const object_Product = newProducts[i];
+    contentHTML += `
+      <div class="item">
+        <div class="card">
+          <img src="${object_Product.img}" alt="${object_Product.name}">
+          <h5>${object_Product.name}</h5>
+          <p><span>Giá chỉ từ:</span> <span class="price-red">${Number(
+            object_Product.price
+          ).toLocaleString("vi-VN")}đ</span></p>
+          <p><span>Bù chỉ từ:</span> <span class="price-blue">${(
+            Number(object_Product.price) - 5000000
+          ).toLocaleString("vi-VN")}đ</span></p>
+          <button>Xem chi tiết</button>
+        </div>
+      </div>
+    `;
+  }
+
+  dom_Element_ID("best-seller").innerHTML = contentHTML;
+
+  // Re-init carousel
+  setTimeout(() => initBestSellerCarousel(), 0);
 };
 
 // Hiệu ứng thêm vào giỏ hàng

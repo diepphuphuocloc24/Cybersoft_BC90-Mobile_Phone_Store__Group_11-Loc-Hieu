@@ -35,17 +35,17 @@
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-straight/css/uicons-thin-straight.css'>
 
-    <!-- TAILWIND CSS -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- FLOWBITE CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet">
-
     <!-- OWL CAROUSEL -->
     <link rel="stylesheet"
         href="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
     <link rel="stylesheet"
         href="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
+
+    <!-- TAILWIND CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- FLOWBITE CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet">
 
     <!-- ANIMTE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -93,7 +93,7 @@
     <!-- CAROUSEL -->
     <section class="carousel">
         <div class="carousel-content">
-            <div class="owl-carousel">
+            <div class="owl-carousel main-carousel">
                 <div class="item"><img src="./../../../../assets/img/tenor.gif" alt="slide 0"></div>
                 <div class="item"><img src="./../../../../assets/img/carousel/slide1.webp" alt="slide 1"></div>
                 <div class="item"><img src="./../../../../assets/img/carousel/slide2.png" alt="slide 2"></div>
@@ -111,8 +111,8 @@
     </section>
 
     <!-- DEAL 1-->
-    <section class="container animate__animated animate__fadeIn wow" data-wow-delay="0.3s">
-        <img class="deal img-animate" src="./../../../../assets/img/deal1.png" width="100%" alt="">
+    <section class="animate__animated animate__fadeIn wow" data-wow-delay="0.3s">
+        <img class="deal img-animate" src="./../../../../assets/img/deal1.jpg" width="100%" alt="">
     </section>
 
     <!-- PRODUCT -->
@@ -143,14 +143,56 @@
 
                 <div class="product-list" id="product-list">
                 </div>
+
+                <div class="flex justify-center">
+                    <a href="#" class="inline-flex items-center gap-2 
+           !border !border-blue-500 !text-blue-500 !bg-white 
+           !font-semibold !px-5 !py-2 !rounded-lg 
+           hover:!bg-blue-500 hover:!text-white 
+           !transition-all !duration-300 !shadow-sm">
+                        Xem thêm tất cả sản phẩm
+                        <i class="fa-solid fa-chevron-right text-sm"></i>
+                    </a>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- DEAL 2-->
-    <section class="container animate__animated animate__fadeIn wow" data-wow-delay="0.3s">
-        <img class="deal img-animate" src="./../../../../assets/img/deal2.png" width="100%" alt="">
+    <!-- BEST SELLER -->
+    <section class="bg-black pb-10" style="margin: 2rem 0rem;">
+        <div class="best-seller-section container">
+            <img src="./../../../assets/img/credit.webp" alt="">
+
+            <img class="return" src="./../../../assets/img/carousel/bestSeller.webp" alt="">
+
+            <div id="best-seller" class="best-seller owl-carousel owl-theme">
+            </div>
+
+            <p class="text-white text-center text-sm md:text-base leading-relaxed mt-4">
+                (*) Giá sản phẩm có thể thay đổi tùy theo tình trạng thực tế. Quý khách vui lòng liên hệ hoặc đến trực
+                tiếp cửa hàng để được thẩm định và báo giá chính xác.
+            </p>
+        </div>
     </section>
+
+    <!-- MODAL TỪNG SẢN PHẨM -->
+    <div id="default-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow-sm dark:bg-gray-700">
+                <!-- Modal header -->
+                <div
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600 border-gray-200">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        Terms of Service
+                    </h3>
+                    <p id="modal-content" class="text-gray-600 dark:text-gray-300">Nội dung modal ở đây...</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- MODAL GIỎ HÀNG -->
     <div id="cart-modal" tabindex="-1" aria-hidden="true"
@@ -213,7 +255,7 @@
     </div>
 
     <!-- MODAL ĐĂNG NHẬP -->
-    <div <div id="login-modal" tabindex="-1" aria-hidden="true"
+    <div id="login-modal" tabindex="-1" aria-hidden="true"
         class="fixed top-0 left-0 right-0 z-50 hidden justify-center items-center w-full h-full bg-black/40">
         <div class="popup-login">
             <button class="close-btn" data-modal-hide="login-modal">
@@ -258,7 +300,8 @@
                 </div>
                 <div class="card__content">
                     <h3>iPhone 17 ra mắt toàn cầu</h3>
-                    <p>Apple chính thức trình làng iPhone 17 với thiết kế mỏng hơn, chip A19 Pro và camera AI thông minh
+                    <p>Apple chính thức trình làng iPhone 17 với thiết kế mỏng hơn, chip A19 Pro và camera AI thông
+                        minh
                         vượt trội.</p>
                 </div>
             </a>
@@ -387,32 +430,40 @@
         crossorigin="anonymous" referrerpolicy="no-referrer">
         </script>
 
-    <!-- FLOWBITE JS -->
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
     <!-- OWL CAROUSEL -->
     <script src="./../../../assets/libs/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
     <script>
-        $('.owl-carousel').owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            dots: true,
-            autoplay: true,
-            autoplayTimeout: 6000,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                600: {
-                    items: 1
-                },
-                1000: {
-                    items: 1
+        $(window).on('load', function () {
+            // Carousel
+            $('.main-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 6000,
+                items: 1
+            });
+
+            // Best seller
+            $('.best-seller').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: true,
+                autoplay: false,
+                responsive: {
+                    0: { items: 1 },
+                    640: { items: 2 },
+                    1024: { items: 3 },
+                    1280: { items: 4 }
                 }
-            }
-        })
+            });
+        });
     </script>
+
+    <!-- FLOWBITE JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
     <!-- BACK TO TOP JS -->
     <script src="./../../../assets/libs/back-to-top-master/assets/js/main.js"></script>
@@ -427,7 +478,8 @@
     <!-- AXIOS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
         integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
 
     <!-- MAIN JS -->
     <script type="module" src="./../controllers/index.js"></script>

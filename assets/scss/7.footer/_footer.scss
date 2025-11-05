@@ -1,7 +1,7 @@
 // FOOTER
 .footer {
   background-color: #e5e7eb;
-  padding: 3rem 0 1.5rem 0;
+  padding-top: 3rem;
   color: darken($gray-600, 10%);
 
   .footer-content {
@@ -54,11 +54,15 @@
   }
 
   .footer-bottom {
-    text-align: center;
+    background-color: $dark;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 2rem;
     font-size: 0.9rem;
-    padding-top: 1.2rem;
+    padding: 1.2rem 0;
     border-top: 1px solid lighten($secondary, 15%);
-    color: darken($gray-600, 10%);
+    color: $light;
+    text-align: center;
   }
 }
