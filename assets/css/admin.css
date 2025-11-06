@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .m-1 {
   margin: 0.25rem;
 }
@@ -1072,425 +1073,6 @@ button.secondary-outline:hover {
     line-height: 50px;
   }
 }
-.admin-container {
-  display: flex;
-  height: 100vh;
-  font-family: sans-serif;
-  background-color: white;
-}
-.admin-container .left-admin {
-  background-color: black;
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 100%;
-  z-index: 100;
-  transition: transform 0.3s ease;
-  transform: translateX(0);
-}
-.admin-container .left-admin.hidden {
-  transform: translateX(-100%);
-}
-@media (min-width: 1025px) {
-  .admin-container .left-admin {
-    transform: translateX(0) !important;
-  }
-}
-.admin-container .left-admin .logo {
-  font-family: "BBH Sans Bartle", sans-serif;
-  font-weight: 600;
-  font-size: 1.25rem;
-  color: white;
-  height: 80px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.admin-container .left-admin ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.admin-container .left-admin ul li {
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.admin-container .left-admin ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  width: 100%;
-  padding: 1rem 1.5rem;
-}
-.admin-container .left-admin ul li:hover {
-  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
-}
-.admin-container .left-admin ul li.active {
-  background-color: white;
-  font-weight: 700;
-  box-shadow: none;
-}
-.admin-container .left-admin ul li.active a {
-  color: black !important;
-}
-.admin-container .overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
-  z-index: 50;
-  transition: opacity 0.3s;
-}
-.admin-container .overlay.active {
-  display: block;
-}
-.admin-container .right-admin {
-  flex: 1;
-  margin-left: 250px;
-  transition: margin-left 0.3s ease;
-}
-@media (max-width: 1024px) {
-  .admin-container .right-admin {
-    margin-left: 0;
-  }
-}
-.admin-container .right-admin .right-header {
-  height: 80px;
-  background-color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1.5rem;
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  width: calc(100% - 250px);
-  position: fixed;
-  top: 0;
-  left: 250px;
-  z-index: 90;
-  transition: all 0.3s;
-}
-.admin-container .right-admin .right-header .burger-toggle {
-  display: none;
-  cursor: pointer;
-  font-size: 1.6rem;
-  color: black;
-  transition: color 0.3s;
-}
-.admin-container .right-admin .right-header .burger-toggle:hover {
-  color: #4fd1c5;
-}
-.admin-container .right-admin .right-header .search-box {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  flex: 1;
-  max-width: 600px;
-}
-.admin-container .right-admin .right-header .search-box input {
-  flex: 1;
-  padding: 0.55rem 1rem;
-  border-radius: 12px;
-  border: 1px solid #ccc;
-  outline: none;
-  font-size: 1rem;
-  background-color: white;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s;
-}
-.admin-container .right-admin .right-header .search-box input:focus {
-  border-color: #ffc107;
-  box-shadow: 0 0 6px rgba(255, 191, 0, 0.3);
-}
-.admin-container .right-admin .right-header .search-box span {
-  margin-left: 0.5rem;
-  cursor: pointer;
-  color: #ff416c;
-  font-size: 1.1rem;
-  transition: all 0.5s;
-}
-.admin-container .right-admin .right-header .search-box span:hover {
-  color: rgb(255, 14, 68.5421052632);
-  transform: scale(1.2);
-}
-.admin-container .right-admin .right-header .header-right {
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-.admin-container .right-admin .right-header .header-right .admin-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: 2px solid #ffc107;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.admin-container .right-admin .right-header .header-right .admin-avatar img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  transition: all 0.5s;
-}
-.admin-container .right-admin .right-header .header-right a,
-.admin-container .right-admin .right-header .header-right p {
-  color: black;
-  text-decoration: none;
-  margin: 0;
-  font-weight: 500;
-  transition: all 0.3s;
-  cursor: pointer;
-}
-.admin-container .right-admin .right-header .header-right a:hover {
-  color: #7258db;
-  transform: scale(1.3);
-}
-.admin-container .right-admin .right-header .header-right a i.bell {
-  animation: SlightlyRotate 0.3s infinite;
-}
-@media (max-width: 1024px) {
-  .admin-container .right-admin .right-header {
-    position: relative;
-    width: 100%;
-  }
-  .admin-container .right-admin .right-header .burger-toggle {
-    display: block;
-  }
-}
-.admin-container .right-admin .right-body {
-  background-color: white;
-  flex: 1;
-  overflow-y: auto;
-  transition: all 0.5s;
-  padding: 5rem 0 1rem 0;
-}
-.admin-container .right-admin .right-body .content-wrapper {
-  width: 100%;
-  min-height: 100%;
-  padding: 1rem;
-  background-color: white;
-}
-.admin-container .right-admin .right-body .container .main-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  position: relative;
-  display: inline-block;
-  color: #00113d;
-}
-.admin-container .right-admin .right-body .container .main-title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -6px;
-  width: 50px;
-  height: 3px;
-  background-color: #4fd1c5;
-  border-radius: 2px;
-}
-.admin-container .right-admin .right-body .container .search_Bar {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  align-items: center;
-}
-.admin-container .right-admin .right-body .container .search_Bar input#searchInput {
-  flex: 1;
-  padding: 0.6rem 1rem;
-  border: 1px solid #ddd;
-  border-radius: 12px;
-  outline: none;
-  font-size: 1rem;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s;
-}
-.admin-container .right-admin .right-body .container .search_Bar input#searchInput:focus {
-  border-color: #4fd1c5;
-  box-shadow: 0 0 6px rgba(79, 209, 197, 0.3);
-}
-.admin-container .right-admin .right-body .container .search_Bar button.btn_Search {
-  padding: 0.55rem 1.3rem;
-  border: none;
-  background-color: #4fd1c5;
-  color: white;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 500;
-  transition: all 0.3s;
-}
-.admin-container .right-admin .right-body .container .search_Bar button.btn_Search:hover {
-  background-color: rgb(58.7837837838, 203.7162162162, 190.3378378378);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
-}
-.admin-container .right-admin .right-body .container .btn_Right {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 1rem;
-}
-.admin-container .right-admin .right-body .container .btn_Right .btn-add {
-  padding: 0.55rem 1.4rem;
-  background-color: #22c55e;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: all 0.3s;
-  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
-}
-.admin-container .right-admin .right-body .container .btn_Right .btn-add i {
-  font-size: 1.1rem;
-}
-.admin-container .right-admin .right-body .container .btn_Right .btn-add:hover {
-  background-color: rgb(38.8116883117, 217.6883116883, 104.6558441558);
-  transform: translateY(-2px) scale(1.03);
-}
-.admin-container .right-admin .right-body .container .filter-section {
-  margin-bottom: 1.5rem;
-}
-.admin-container .right-admin .right-body .container .filter-section select#filter {
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  background-color: white;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-.admin-container .right-admin .right-body .container .filter-section select#filter:focus {
-  border-color: #4fd1c5;
-  box-shadow: 0 0 6px rgba(79, 209, 197, 0.3);
-}
-.admin-container .right-admin .right-body .container .filter-section select#sortPrice {
-  padding: 0.5rem 1rem;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 1rem;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  background-color: white;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-}
-.admin-container .right-admin .right-body .container .filter-section select#sortPrice:focus {
-  border-color: #4fd1c5;
-  box-shadow: 0 0 6px rgba(79, 209, 197, 0.3);
-}
-@media (max-width: 768px) {
-  .admin-container .right-admin .right-body .container .search_Bar {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .admin-container .right-admin .right-body .container .search_Bar input#searchInput,
-  .admin-container .right-admin .right-body .container .search_Bar button.btn_Search {
-    width: 100%;
-  }
-  .admin-container .right-admin .right-body .container .btn_Right {
-    justify-content: center;
-  }
-  .admin-container .right-admin .right-body .container .btn_Right .btn-add {
-    width: 100%;
-    justify-content: center;
-  }
-}
-.admin-container .right-admin .right-body .container .admin-table {
-  border-radius: 12px;
-  padding-bottom: 2rem;
-  overflow: hidden;
-  color: black;
-}
-.admin-container .right-admin .right-body .container .admin-table table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-  font-size: 1rem;
-  background-color: white;
-  border: 1px solid #a7f3d0;
-}
-.admin-container .right-admin .right-body .container .admin-table table thead {
-  background-color: #4fd1c5;
-  color: #00113d;
-}
-.admin-container .right-admin .right-body .container .admin-table table thead th {
-  padding: 1rem 1.25rem;
-  font-weight: 600;
-  border-bottom: 2px solid #a7f3d0;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr {
-  border-bottom: 1px solid #a7f3d0;
-  transition: background 0.2s;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr:hover {
-  background-color: #dbf9eb;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td {
-  padding: 1rem 1.25rem;
-  vertical-align: middle;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td img {
-  width: 60px;
-  height: 60px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td .btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: 0.2s;
-  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
-  color: white;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td .btn.edit {
-  background-color: #22c55e;
-  margin-left: 0.5rem;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td .btn.edit:hover {
-  background-color: rgb(60.5584415584, 221.4415584416, 119.7792207792);
-  transform: scale(1.05);
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td .btn.delete {
-  background-color: #ef4444;
-  margin-left: 0.5rem;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody tr td .btn.delete:hover {
-  background-color: rgb(234.9802955665, 21.0197044335, 21.0197044335);
-  transform: scale(1.05);
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody .price {
-  font-weight: 600;
-  color: #ff416c;
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody .stock {
-  display: inline-block;
-  padding: 0 0.3rem;
-  border-radius: 4px;
-  font-weight: 600;
-  background-color: rgb(47, 255, 133.32);
-}
-.admin-container .right-admin .right-body .container .admin-table table tbody .stock.inventory {
-  background-color: rgb(255, 218.5, 109);
-}
-
 #cart-modal .modal-content {
   background: linear-gradient(135deg, #ffffff 0%, #fff1f5 100%);
   width: 80%;
@@ -1647,5 +1229,582 @@ button.secondary-outline:hover {
   to {
     transform: translateY(0);
     opacity: 1;
+  }
+}
+/* ===================== ADMIN CONTAINER ===================== */
+.admin-container {
+  display: flex;
+  height: 100vh;
+  font-family: sans-serif;
+  background-color: white;
+  /* ----- Sidebar ----- */
+  /* ----- Overlay ----- */
+  /* ----- Right Admin Section ----- */
+}
+.admin-container .left-admin {
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  z-index: 100;
+  transition: transform 0.3s ease;
+  transform: translateX(0);
+}
+.admin-container .left-admin.hidden {
+  transform: translateX(-100%);
+}
+@media (min-width: 1025px) {
+  .admin-container .left-admin {
+    transform: translateX(0) !important;
+  }
+}
+.admin-container .left-admin .logo {
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+  color: white;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.admin-container .left-admin ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.admin-container .left-admin ul li {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.admin-container .left-admin ul li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+}
+.admin-container .left-admin ul li:hover {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.3);
+}
+.admin-container .left-admin ul li.active {
+  background-color: white;
+  font-weight: 700;
+  box-shadow: none;
+}
+.admin-container .left-admin ul li.active a {
+  color: black !important;
+}
+.admin-container .overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  transition: opacity 0.3s;
+}
+.admin-container .overlay.active {
+  display: block;
+}
+.admin-container .right-admin {
+  flex: 1;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+}
+@media (max-width: 1024px) {
+  .admin-container .right-admin {
+    margin-left: 0;
+  }
+}
+.admin-container .right-admin .right-header {
+  height: 80px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  width: calc(100% - 250px);
+  position: fixed;
+  top: 0;
+  left: 250px;
+  z-index: 90;
+  transition: all 0.3s;
+  /* ----- Responsive Header ----- */
+}
+.admin-container .right-admin .right-header .burger-toggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  color: black;
+  transition: color 0.3s;
+}
+.admin-container .right-admin .right-header .burger-toggle:hover {
+  color: #4fd1c5;
+}
+.admin-container .right-admin .right-header .search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  max-width: 600px;
+}
+.admin-container .right-admin .right-header .search-box input {
+  flex: 1;
+  padding: 0.55rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 1rem;
+  background-color: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+.admin-container .right-admin .right-header .search-box input:focus {
+  border-color: #ffc107;
+  box-shadow: 0 0 6px rgba(255, 191, 0, 0.3);
+}
+.admin-container .right-admin .right-header .search-box span {
+  margin-left: 0.5rem;
+  cursor: pointer;
+  color: #ff416c;
+  font-size: 1.1rem;
+  transition: all 0.5s;
+}
+.admin-container .right-admin .right-header .search-box span:hover {
+  color: rgb(255, 14, 68.5421052632);
+  transform: scale(1.2);
+}
+.admin-container .right-admin .right-header .header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+.admin-container .right-admin .right-header .header-right .admin-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid #ffc107;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-container .right-admin .right-header .header-right .admin-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s;
+}
+.admin-container .right-admin .right-header .header-right a,
+.admin-container .right-admin .right-header .header-right p {
+  color: black;
+  text-decoration: none;
+  margin: 0;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.admin-container .right-admin .right-header .header-right a:hover {
+  color: #7258db;
+  transform: scale(1.3);
+}
+.admin-container .right-admin .right-header .header-right a i.bell {
+  animation: SlightlyRotate 0.3s infinite;
+}
+@media (max-width: 1024px) {
+  .admin-container .right-admin .right-header {
+    width: 100%;
+    left: 0;
+    position: fixed;
+    z-index: 90;
+  }
+  .admin-container .right-admin .right-header .burger-toggle {
+    display: block;
+  }
+}
+@media (max-width: 768px) {
+  .admin-container .right-admin .right-header {
+    padding: 0 1rem;
+  }
+  .admin-container .right-admin .right-header .header-right {
+    gap: 0.8rem;
+  }
+  .admin-container .right-admin .right-header .header-right .admin-avatar {
+    width: 50px;
+    height: 50px;
+  }
+  .admin-container .right-admin .right-header .header-right a {
+    font-size: 0.9rem;
+  }
+  .admin-container .right-admin .right-header .search-box {
+    max-width: 400px;
+  }
+  .admin-container .right-admin .right-header .search-box input {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 576px) {
+  .admin-container .right-admin .right-header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
+  }
+  .admin-container .right-admin .right-header .search-box {
+    width: 100%;
+    max-width: 100%;
+  }
+  .admin-container .right-admin .right-header .header-right {
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
+/* ===================== RIGHT BODY ===================== */
+.right-body {
+  background-color: white;
+  flex: 1;
+  overflow-y: auto;
+  transition: all 0.5s;
+  padding: 5rem 1.5rem 1rem 1.5rem;
+}
+.right-body .content-wrapper {
+  width: 100%;
+  min-height: 100%;
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+}
+.right-body .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.right-body .container .main-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  color: #00113d;
+}
+.right-body .container .main-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 50px;
+  height: 3px;
+  background-color: #4fd1c5;
+  border-radius: 2px;
+}
+.right-body .container .search_Bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.right-body .container .search_Bar input#searchInput {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  outline: none;
+  font-size: 1rem;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+}
+.right-body .container .search_Bar input#searchInput:focus {
+  border-color: #4fd1c5;
+  box-shadow: 0 0 6px rgba(79, 209, 197, 0.3);
+}
+.right-body .container .search_Bar button.btn_Search {
+  padding: 0.55rem 1.3rem;
+  border: none;
+  background-color: #4fd1c5;
+  color: white;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.right-body .container .search_Bar button.btn_Search:hover {
+  background-color: rgb(58.7837837838, 203.7162162162, 190.3378378378);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+}
+.right-body .container .btn_Right {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+.right-body .container .btn_Right .btn-add {
+  padding: 0.55rem 1.4rem;
+  background-color: #22c55e;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+}
+.right-body .container .btn_Right .btn-add i {
+  font-size: 1.1rem;
+}
+.right-body .container .btn_Right .btn-add:hover {
+  background-color: rgb(38.8116883117, 217.6883116883, 104.6558441558);
+  transform: translateY(-2px) scale(1.03);
+}
+.right-body .container .filter-section {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+.right-body .container .filter-section select {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: white;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+.right-body .container .filter-section select:focus {
+  border-color: #4fd1c5;
+  box-shadow: 0 0 6px rgba(79, 209, 197, 0.3);
+}
+.right-body .container .admin-table {
+  border-radius: 12px;
+  padding-bottom: 2rem;
+  overflow-x: auto;
+  color: black;
+}
+.right-body .container .admin-table table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 1rem;
+  background-color: white;
+  border: 1px solid #a7f3d0;
+  min-width: 700px;
+}
+.right-body .container .admin-table table thead {
+  background-color: #4fd1c5;
+  color: #00113d;
+}
+.right-body .container .admin-table table thead th {
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  border-bottom: 2px solid #a7f3d0;
+  white-space: nowrap;
+}
+.right-body .container .admin-table table tbody tr {
+  border-bottom: 1px solid #a7f3d0;
+  transition: background 0.2s;
+}
+.right-body .container .admin-table table tbody tr:hover {
+  background-color: rgb(240.7297297297, 251.2702702703, 250.2972972973);
+}
+.right-body .container .admin-table table tbody tr td {
+  padding: 1rem 1.25rem;
+  vertical-align: middle;
+}
+.right-body .container .admin-table table tbody tr td img {
+  width: 60px;
+  height: 60px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.right-body .container .admin-table table tbody tr td .btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: 0.2s;
+  box-shadow: 0 4px 12px rgba(17, 24, 39, 0.1);
+  color: white;
+}
+.right-body .container .admin-table table tbody tr td .btn.edit {
+  background-color: #22c55e;
+  margin-left: 0.5rem;
+}
+.right-body .container .admin-table table tbody tr td .btn.edit:hover {
+  background-color: rgb(60.5584415584, 221.4415584416, 119.7792207792);
+  transform: scale(1.05);
+}
+.right-body .container .admin-table table tbody tr td .btn.delete {
+  background-color: #ef4444;
+  margin-left: 0.5rem;
+}
+.right-body .container .admin-table table tbody tr td .btn.delete:hover {
+  background-color: rgb(234.9802955665, 21.0197044335, 21.0197044335);
+  transform: scale(1.05);
+}
+.right-body .container .admin-table table tbody .price {
+  font-weight: 600;
+  color: #ff416c;
+}
+.right-body .container .admin-table table tbody .stock {
+  display: inline-block;
+  padding: 0 0.3rem;
+  border-radius: 4px;
+  font-weight: 600;
+  background-color: rgb(47, 255, 133.32);
+}
+.right-body .container .admin-table table tbody .stock.inventory {
+  background-color: rgb(255, 218.5, 109);
+}
+@media (max-width: 992px) {
+  .right-body .container .main-title {
+    font-size: 1.25rem;
+  }
+  .right-body .container .search_Bar {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .right-body .container .search_Bar input#searchInput,
+  .right-body .container .search_Bar button.btn_Search {
+    width: 100%;
+  }
+  .right-body .container .btn_Right {
+    justify-content: center;
+  }
+  .right-body .container .btn_Right .btn-add {
+    width: 100%;
+    justify-content: center;
+  }
+  .right-body .container .filter-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+@media (max-width: 768px) {
+  .right-body .container .main-title {
+    font-size: 1.125rem;
+  }
+  .right-body .container .content-wrapper {
+    padding: 1rem;
+  }
+  .right-body .container .admin-table table {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 576px) {
+  .right-body .container .main-title::after {
+    width: 40px;
+  }
+  .right-body .container .btn_Right .btn-add {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  .admin-container {
+    box-sizing: border-box;
+  }
+  .admin-container .left-admin {
+    width: 200px; /* ✅ nhỏ hơn để nhường chỗ cho content */
+    transition: width 0.3s ease;
+  }
+  .admin-container .left-admin .logo {
+    font-size: 1.125rem;
+    height: 65px;
+  }
+  .admin-container .left-admin ul li a {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+  .admin-container .right-admin {
+    margin-left: 200px; /* khớp với sidebar */
+    transition: margin-left 0.3s ease;
+  }
+  .admin-container .right-admin .right-header {
+    width: calc(100% - 200px);
+    left: 200px;
+    padding: 0 1rem;
+    height: 70px;
+  }
+  .admin-container .right-admin .right-header .search-box {
+    max-width: 450px;
+  }
+  .admin-container .right-admin .right-header .search-box input {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+  .admin-container .right-admin .right-header .header-right {
+    gap: 0.8rem;
+  }
+  .admin-container .right-admin .right-header .header-right .admin-avatar {
+    width: 55px;
+    height: 55px;
+  }
+  .admin-container .right-admin .right-header .header-right a {
+    font-size: 0.9rem;
+  }
+  .right-body {
+    padding: 4rem 1rem 1rem 1rem;
+  }
+  .right-body .container {
+    max-width: 1050px; /* ✅ Giảm để không tràn khung */
+    margin: 0 auto;
+  }
+  .right-body .container .main-title {
+    font-size: 1.3rem;
+  }
+  .right-body .container .search_Bar {
+    gap: 0.6rem;
+  }
+  .right-body .container .search_Bar input#searchInput {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.9rem;
+  }
+  .right-body .container .search_Bar button.btn_Search {
+    padding: 0.45rem 1rem;
+    font-size: 0.9rem;
+  }
+  .right-body .container .btn_Right .btn-add {
+    padding: 0.45rem 1rem;
+    font-size: 0.9rem;
+  }
+  .right-body .container .filter-section {
+    gap: 0.5rem;
+  }
+  .right-body .container .filter-section select {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+  .right-body .container .admin-table table {
+    font-size: 0.9rem;
+    min-width: 650px; /* ✅ tránh tràn */
+  }
+  .right-body .container .admin-table table th,
+  .right-body .container .admin-table table td {
+    padding: 0.7rem 0.9rem;
+  }
+  .right-body .container .admin-table table img {
+    width: 50px;
+    height: 50px;
   }
 }/*# sourceMappingURL=admin.css.map */
